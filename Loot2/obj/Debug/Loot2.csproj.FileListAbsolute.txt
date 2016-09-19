@@ -1,0 +1,30 @@
+C:\Users\cyber\Desktop\Loot2\Loot2\Loot2\bin\Debug\Loot2.exe.config
+C:\Users\cyber\Desktop\Loot2\Loot2\Loot2\obj\Debug\Loot2.csprojResolveAssemblyReference.cache
+C:\Users\cyber\Desktop\Loot2\Loot2\Loot2\obj\Debug\Loot2.Form1.resources
+C:\Users\cyber\Desktop\Loot2\Loot2\Loot2\obj\Debug\Loot2.Properties.Resources.resources
+C:\Users\cyber\Desktop\Loot2\Loot2\Loot2\obj\Debug\Loot2.csproj.GenerateResource.Cache
+C:\Users\cyber\Desktop\Loot2\Loot2\Loot2\bin\Debug\Loot2.exe
+C:\Users\cyber\Desktop\Loot2\Loot2\Loot2\bin\Debug\Loot2.pdb
+C:\Users\cyber\Desktop\Loot2\Loot2\Loot2\obj\Debug\Loot2.exe
+C:\Users\cyber\Desktop\Loot2\Loot2\Loot2\obj\Debug\Loot2.pdb
+C:\Users\cyber\Desktop\Loot2\Loot2\Loot2\bin\Debug\Newtonsoft.Json.dll
+C:\Users\cyber\Desktop\Loot2\Loot2\Loot2\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\cyber\Desktop\Loot2\Loot2\Loot2\bin\Debug\Newtonsoft.Json.xml
+C:\Users\cyber\Desktop\Loot2 - Kopie\Loot2\Loot2\bin\Debug\Loot2.exe.config
+C:\Users\cyber\Desktop\Loot2 - Kopie\Loot2\Loot2\obj\Debug\Loot2.exe
+C:\Users\cyber\Desktop\Loot2 - Kopie\Loot2\Loot2\obj\Debug\Loot2.pdb
+C:\Users\cyber\Desktop\Loot2 - Kopie\Loot2\Loot2\obj\Debug\Loot2.csprojResolveAssemblyReference.cache
+C:\Users\cyber\Desktop\Loot2 - Kopie\Loot2\Loot2\obj\Debug\Loot2.Properties.Resources.resources
+C:\Users\cyber\Desktop\Loot2 - Kopie\Loot2\Loot2\obj\Debug\Loot2.csproj.GenerateResource.Cache
+C:\Users\cyber\Desktop\Loot2 - Kopie\Loot2\Loot2\bin\Debug\Loot2.exe
+C:\Users\cyber\Desktop\Loot2 - Kopie\Loot2\Loot2\bin\Debug\Loot2.pdb
+C:\Users\cyber\Desktop\Loot2 - Kopie\Loot2\Loot2\bin\Debug\Newtonsoft.Json.dll
+C:\Users\cyber\Desktop\Loot2 - Kopie\Loot2\Loot2\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\cyber\Desktop\Loot2 - Kopie\Loot2\Loot2\bin\Debug\Newtonsoft.Json.xml
+C:\Users\cyber\Desktop\Loot2 - Kopie\Loot2\Loot2\obj\Debug\Loot2.LootGUI.resources
+C:\Users\cyber\Desktop\Loot2 - Kopie\Loot2\Loot2\obj\Debug\Loot2.popUpDia.resources
+C:\Users\cyber\Desktop\Loot2 - Kopie\Loot2\Loot2\bin\Debug\Polenter.SharpSerializer.dll
+C:\Users\cyber\Desktop\Loot2 - Kopie\Loot2\Loot2\bin\Debug\Polenter.SharpSerializer.xml
+C:\Users\cyber\Desktop\Loot2 - Kopie\Loot2\Loot2\bin\Debug\YAXLib.dll
+C:\Users\cyber\Desktop\Loot2 - Kopie\Loot2\Loot2\bin\Debug\YAXLib.pdb
+C:\Users\cyber\Desktop\Loot2 - Kopie\Loot2\Loot2\bin\Debug\YAXLib.xml

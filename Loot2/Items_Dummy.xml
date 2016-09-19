@@ -1,0 +1,10 @@
+<ListOfLoot>
+  <Loot Name="DummyName" Typ="DummyType">
+    <Tags Tag="DummyTags" Quest="DummyQuest1,DummyQuest2" Area="DummyArea1,DummyArea2" />
+    <int MaxLootbar="-1" Seltenheit="1000" AttributCount="1" />
+    <Attribut>
+      <Operation Name="DummyAttribut1_1,DummyAttribut1_2" Intervall="0,100" />
+      <Operation Name="DummyAttribut2_1,DummyAttribut2_2" Intervall="0,100" />
+    </Attribut>
+  </Loot>
+</ListOfLoot>

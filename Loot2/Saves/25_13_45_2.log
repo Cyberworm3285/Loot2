@@ -1,0 +1,80 @@
+Dicker Holzstab [Zweihandwaffe]  || Physikalisch(1) : 1
+Swiftness [Potion]  || Swiftness(1) : 2
+Armbrust [Fernkampfwaffe]  || Arkan(2) : 4
+Knochen [Einhandwaffe]  || Frost(2) : 5
+Dagger [Einhandwaffe]  || Arkan(1) : 6
+Met [Potion]  || Alk(1) : 7
+Lederlappen [Armor]  || Physikalisch Def(1) : 9
+AlteMetFlasche [Einhandwaffe]  || Physikalisch(1) : 10
+Morgenstern [Zweihandwaffe]  || Blitz(3) : 11
+Cuntholz [Zweihandwaffe]  || Blitz(3) : 12
+Mega Shiny Koenigliche Ruestung [Armor]  || Arkan Def(3) : 13
+AbgetrennterArm [Einhandwaffe]  || Physikalisch(2) : 15
+Ziemlich Nicer Bogen [Fernkampfwaffe]  || Arkan(2) : 17
+Schwert [Einhandwaffe]  || Feuer(2) : 18
+ZweischneidigeAxt [Zweihandwaffe]  || Frost(3) : 21
+Mithrilhemd [Armor]  || Feuer Def(2) : 23
+DerHurenBasher [Zweihandwaffe]  || Gift(3) : 24
+Floete [Einhandwaffe]  || Physikalisch(1) : 25
+Langbogen [Fernkampfwaffe]  || Physikalisch(2) : 27
+Flitzebogen [Fernkampfwaffe]  || Physikalisch(1) : 28
+Hannes Stinkt item [Wahrheit]  || Hannes stinkt(3) : 32
+Bier [Potion]  || Alk(1) : 42
+Health [Potion]  || Health(2) : 49
+Saebel [Einhandwaffe]  || Frost(2) : 50
+Elbenbogen [Fernkampfwaffe]  || Blitz(2) : 51
+Steinschleuder [Fernkampfwaffe]  || Feuer(2) : 55
+Holzruestung [Armor]  || Physikalisch Def(1) : 61
+Kriegshammer [Zweihandwaffe]  || Arkan(2) : 68
+Langbogen [Fernkampfwaffe]  || Arkan(2) : 77
+MagicGiantStock [Zweihandwaffe]  || Arkan(2) : 80
+Keule [Einhandwaffe]  || Feuer(1) : 99
+Katana [Einhandwaffe]  || Blitz(3) : 100
+HelmDesSchwarzenRitters [Armor]  || Blitz Def(1) : 105
+Berserker [Potion]  || Berserker(2) : 111
+DeepsHelm [Armor]  || Gift Def(2) : 117
+Unsichtbarkeit [Potion]  || Unsichtbarkeit(1) : 119
+Holzdildo [Einhandwaffe]  || Arkan(3) : 138
+CloudsBusterSword [Zweihandwaffe]  || Feuer(3) : 171
+RostigerPlattenpanzer [Armor]  || Physikalisch Def(2) : 182
+<-------------------------------------------------Traversierung------------------------------------------------->
+00: Dagger [Einhandwaffe]  || Feuer(1) Tags: leer
+01: Keule [Einhandwaffe]  || Blitz(1) Tags: leer
+02: Schwert [Einhandwaffe]  || Physikalisch(2) Tags: leer
+03: Saebel [Einhandwaffe]  || Physikalisch(2) Tags: leer
+04: Holzdildo [Einhandwaffe]  || Gift(3) Tags: leer
+05: Floete [Einhandwaffe]  || Physikalisch(1) Tags: leer
+06: Katana [Einhandwaffe]  || Arkan(3) Tags: leer
+07: AlteMetFlasche [Einhandwaffe]  || Physikalisch(1) Tags: leer
+08: AbgetrennterArm [Einhandwaffe]  || Physikalisch(2) Tags: leer
+09: Knochen [Einhandwaffe]  || Physikalisch(2) Tags: leer
+10: CloudsBusterSword [Zweihandwaffe]  || Feuer(3) Tags: leer
+11: DerHurenBasher [Zweihandwaffe]  || Arkan(3) Tags: leer
+12: MagicGiantStock [Zweihandwaffe]  || Arkan(2) Tags: leer
+13: Kriegshammer [Zweihandwaffe]  || Arkan(2) Tags: leer
+14: ZweischneidigeAxt [Zweihandwaffe]  || Arkan(3) Tags: leer
+15: Morgenstern [Zweihandwaffe]  || Feuer(3) Tags: leer
+16: Cuntholz [Zweihandwaffe]  || Physikalisch(3) Tags: leer
+17: Dicker Holzstab [Zweihandwaffe]  || Physikalisch(1) Tags: leer
+18: Armbrust [Fernkampfwaffe]  || Gift(2) Tags: leer
+19: Langbogen [Fernkampfwaffe]  || Blitz(1) Tags: leer
+20: Langbogen [Fernkampfwaffe]  || Physikalisch(1) Tags: leer
+21: Steinschleuder [Fernkampfwaffe]  || Arkan(2) Tags: leer
+22: Flitzebogen [Fernkampfwaffe]  || Physikalisch(1) Tags: leer
+23: Elbenbogen [Fernkampfwaffe]  || Arkan(2) Tags: leer
+24: Ziemlich Nicer Bogen [Fernkampfwaffe]  || Arkan(3) Tags: leer
+25: Holzruestung [Armor]  || Physikalisch Def(1) Tags: leer
+26: HelmDesSchwarzenRitters [Armor]  || Gift Def(1) Tags: leer
+27: Mithrilhemd [Armor]  || Gift Def(2) Tags: leer
+28: Mega Shiny Koenigliche Ruestung [Armor]  || Feuer Def(3) Tags: leer
+29: Lederlappen [Armor]  || Physikalisch Def(1) Tags: leer
+30: DeepsHelm [Armor]  || Frost Def(2) Tags: leer
+31: RostigerPlattenpanzer [Armor]  || Physikalisch Def(2) Tags: leer
+32: Health [Potion]  || Health(2) Tags: leer
+33: Berserker [Potion]  || Berserker(1) Tags: leer
+34: Swiftness [Potion]  || Swiftness(3) Tags: leer
+35: Unsichtbarkeit [Potion]  || Unsichtbarkeit(1) Tags: leer
+36: Met [Potion]  || Alk(1) Tags: leer
+37: Bier [Potion]  || Alk(1) Tags: leer
+38: Hannes Stinkt item [Wahrheit]  || Hannes stinkt mehr(3) Tags: >Gebiet 1<
+<------------------------------------------------/Traversierung------------------------------------------------->

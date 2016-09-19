@@ -1,0 +1,30 @@
+Dagger,Einhandwaffe{[Schaden(0)](1-2);}(300)<>
+Keule,Einhandwaffe{[Schaden(0)](1);}(400)<>
+Schwert,Einhandwaffe{[Schaden(0)](2);}(100)<>
+Saebel,Einhandwaffe{[Schaden(0)](2);}(100)<>
+Holzdildo,Einhandwaffe{[Schaden(r)](3);}(40)<>
+Floete,Einhandwaffe{[Schaden(0)](1);}(60)<>
+Stock,Einhandwaffe{[Schaden(0)](1);}(600)<>
+Fetter Zweihaender,Zweihandwaffe{[Schaden(0)](1-2);}(300)<>
+Morgenstern,Zweihandwaffe{[Schaden(0)](2);}(200)<>
+Cuntholz,Zweihandwaffe{[Schaden(0,1,3,4,5)](2-3);}(50)<>
+Dicker Holzstab,Zweihandwaffe{[Schaden(0)](1);}(500)<>
+Armbrust,Fernkampfwaffe{[Schaden(r)](2);}(300)<>
+Langbogen,Fernkampfwaffe{[Schaden(r)](1-2);}(500)<>
+Elbenbogen,Fernkampfwaffe{[Schaden(r)](2-3);}(100)<>
+Ziemlich Nicer Bogen,Fernkampfwaffe{[Schaden(1,2,3,4,5)](2-3);}(90)<>
+Holzruestung,Armor{[SchadenDef(0)](1);}(400)<>
+Mithrilhemd,Armor{[SchadenDef(0)](2);}(100)<>
+Mega Shiny Koenigliche Ruestung,Armor{[SchadenDef(r)](3);}(30)<>
+
+
+
+
+
+
+
+
+
+
+
+
