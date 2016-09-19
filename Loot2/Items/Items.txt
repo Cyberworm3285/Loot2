@@ -1,0 +1,38 @@
+Dagger,Einhandwaffe{[Schaden(r)](1-2);}(300)<>
+Keule,Einhandwaffe{[Schaden(r)](1);}(400)<>
+Schwert,Einhandwaffe{[Schaden(r)](2);}(100)<>
+Saebel,Einhandwaffe{[Schaden(r)](2);}(100)<>
+Holzdildo,Einhandwaffe{[Schaden(r)](3);}(40)<>
+Floete,Einhandwaffe{[Schaden(0)](1);}(60)<>
+Katana,Einhandwaffe{[Schaden(r)](3);}(90)<>
+AlteMetFlasche,Einhandwaffe{[Schaden(0)](1);}(600)<>
+AbgetrennterArm,Einhandwaffe{[Schaden(0)](1-2);}(400)<>
+Knochen,Einhandwaffe{[Schaden(r)](1-2);}(400)<>
+CloudsBusterSword,Zweihandwaffe{[Schaden(r)](3);}(50)<>
+DerHurenBasher,Zweihandwaffe{[Schaden(r)](2-3);}(100)<>
+MagicGiantStock,Zweihandwaffe{[Schaden(5)](2);}(200)<>
+Kriegshammer,Zweihandwaffe{[Schaden(r)](2);}(300)<>
+ZweischneidigeAxt,Zweihandwaffe{[Schaden(r)](3);}(100)<>
+Morgenstern,Zweihandwaffe{[Schaden(r)](3);}(200)<>
+Cuntholz,Zweihandwaffe{[Schaden(0,1,3,4,5)](2-3);}(50)<>
+Dicker Holzstab,Zweihandwaffe{[Schaden(0)](1);}(500)<>
+Armbrust,Fernkampfwaffe{[Schaden(r)](2);}(300)<>
+Langbogen,Fernkampfwaffe{[Schaden(r)](1-2);}(300)<>
+Langbogen,Fernkampfwaffe{[Schaden(0)](1-2);}(500)<>
+Steinschleuder,Fernkampfwaffe{[Schaden(r)](1-2);}(600)<>
+Flitzebogen,Fernkampfwaffe{[Schaden(0)](1);}(700)<>
+Elbenbogen,Fernkampfwaffe{[Schaden(r)](2-3);}(100)<>
+Ziemlich Nicer Bogen,Fernkampfwaffe{[Schaden(1,2,3,4,5)](2-3);}(90)<>
+Holzruestung,Armor{[SchadenDef(0)](1);}(400)<>
+HelmDesSchwarzenRitters,Armor{[SchadenDef(r)](1-3);}(90)<>
+Mithrilhemd,Armor{[SchadenDef(r)](2);}(100)<>
+Mega Shiny Koenigliche Ruestung,Armor{[SchadenDef(r)](3);}(30)<>
+Lederlappen,Armor{[SchadenDef(0)](1);}(700)<>
+DeepsHelm,Armor{[SchadenDef(r)](2);}(300)<>
+RostigerPlattenpanzer,Armor{[SchadenDef(0)](2);}(300)<>
+Health,Potion{[Potion(0)](2);}(600)<>
+Berserker,Potion{[Potion(1)](1-3);}(300)<>
+Swiftness,Potion{[Potion(2)](1-3);}(500)<>
+Unsichtbarkeit,Potion{[Potion(3)](1-3);}(50)<>
+Met,Potion{[Potion(4)](1);}(700)<>
+Bier,Potion{[Potion(4)](1);}(700)<>
