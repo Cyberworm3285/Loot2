@@ -59,6 +59,7 @@ namespace Loot2
             looter = new Looter(itemLBx,logLBx,typeChckLBx,config,areaChckLBx,questChckLBx);
             initializeConfigs();
             lootModeBtn.Text += " "+looter.algNames[lootMode];
+            xmlJsonBtn.Text = looter.typeNames[0];
         }
 
         /// <summary>
@@ -90,7 +91,6 @@ namespace Loot2
         /// <param name="e"></param>
         private void dummyCreatorBtnr_Click(object sender, EventArgs e)
         {
-            looter.xmlSave();
             looter.jsonSave();
         }
 
@@ -116,9 +116,8 @@ namespace Loot2
         {
             try
             {
-                string[] namen = new string[] { "XML","json", "Vorgänger-Formatierung" };
                 looter.useFileMethod(fileMode);
-                aktDataTypeLbl.Text = "Momentan geladen: " + namen[fileMode] + " (" + looter.lootLib.lootList.Count.ToString() + ")";
+                aktDataTypeLbl.Text = "Momentan geladen: " + looter.typeNames[fileMode] + " (" + looter.lootLib.lootList.Count.ToString() + ")";
             }
             catch(FileNotFoundException ex)
             {
@@ -186,26 +185,9 @@ namespace Loot2
         /// <param name="e"></param>
         private void xmlJsonBtn_Click(object sender, EventArgs e)
         {
-            switch (fileMode)
-            {
-                case 0:
-                    {
-                        xmlJsonBtn.Text = "json";
-                        break;
-                    }
-                case 1:
-                    {
-                        xmlJsonBtn.Text = "Vorgänger";
-                        break;
-                    }
-                case 2:
-                    {
-                        xmlJsonBtn.Text = "XML";
-                        break;
-                    }
-            }
+            xmlJsonBtn.Text = looter.typeNames[fileMode];
             fileMode++;
-            fileMode %= 3; // nur Werte von 0-2, also zyklisch mit Modulo umgesetzt
+            fileMode %= looter.typeNames.Count; // nur Werte von 0-2, also zyklisch mit Modulo umgesetzt
         }
 
         /// <summary>

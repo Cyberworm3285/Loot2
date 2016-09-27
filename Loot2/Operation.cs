@@ -11,34 +11,44 @@ namespace Loot2
     /// </summary>
     public class Operation
     {
-        [YAXLib.YAXCollection(YAXLib.YAXCollectionSerializationTypes.Serially, SeparateBy = ",")]
-        [YAXLib.YAXSerializeAs("Name")]
-        [YAXLib.YAXAttributeForClass]
         /// <summary>
         ///     speichert alle Möglichen Namen für diese Operation
         /// </summary>
         public List<string> attribName { get; set; }
-        [YAXLib.YAXCollection(YAXLib.YAXCollectionSerializationTypes.Serially, SeparateBy = ",")]
-        [YAXLib.YAXSerializeAs("Intervall")]
-        [YAXLib.YAXAttributeFor("")]
-        public int[] intervall { get; set; }
+        public Intervall intervall { get; set; }
+        public bool fixedOp;
 
         public Operation()
         {
             attribName = new List<string>();
-            intervall = new int[2];
         }
 
         /// <summary>
         ///     befüllt das Objekt mit standard Werten
         ///     <para>(Ende des Baum-Aufrugfs)</para>
         /// </summary>
-        public void createDummy(int number)
+        public void createDummy(int number, bool isFixed)
         {
-            intervall[0] = 0;
-            intervall[1] = 100;
+            intervall = new Intervall(0, 1);
             attribName.Add("DummyAttribut" + number + "_1");
             attribName.Add("DummyAttribut" + number + "_2");
+            fixedOp = isFixed;
+        }
+    }
+
+    public struct Intervall
+    {
+        public int low, high;
+
+        /// <summary>
+        ///     Erstellt ein neues <see cref="Intervall"/>
+        /// </summary>
+        /// <param name="l">Untere Grenze des intervalls</param>
+        /// <param name="h">Obere Grenze des Intervalls</param>
+        public Intervall(int l, int h)
+        {
+            low = l;
+            high = h;
         }
     }
 }

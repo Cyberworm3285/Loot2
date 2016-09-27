@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 using System.Xml.Serialization;
 using System.IO;
 using System.Windows.Forms;
-using Polenter.Serialization;
-using YAXLib;
 
 namespace Loot2
 {
@@ -57,12 +55,8 @@ namespace Loot2
         ///     Liste mit Namen für die Loot-Algorithmen
         /// </summary>
         public List<string> algNames = new List<string> { "Scheiß_drauf", "Faul_Mit_Parameter", "Skin_Gambling", "Skin_Gambling_Adv" };
+        public List<string> typeNames = new List<string>() { "JSON", "Vorgänger" };
 
-        /// <summary>
-        ///     XML Serializer für In-/Output von Daten
-        /// </summary>
-        //private Polenter.Serialization.SharpSerializer xml;
-        private YAXSerializer xml = new YAXSerializer(typeof(List<Loot>));
         /// <summary>
         ///     für abwärts-Kompatibilität zu älteren Versionen (kein XML und json)
         /// </summary>
@@ -130,26 +124,6 @@ namespace Loot2
         {
             if (enabled)
             { logOutput.Items.Add(message); }
-        }
-
-        /// <summary>
-        ///     Methode für Speicherung der XML Datei
-        /// </summary>
-        public void xmlSave()
-        {
-            string path = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, "Items_Dummy.xml");
-            string xmlString = xml.Serialize(lootLib.lootList);
-            File.WriteAllText(path, xmlString);
-        }
-
-        /// <summary>
-        ///     Methode zum Laden der Item.xml Datei
-        /// </summary>
-        public void xmlLoad()
-        {
-            string path = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, "Items.xml");
-            lootLib.lootList = (List<Loot>)xml.Deserialize(File.ReadAllText(path));
-            loadCheckBoxes();
         }
 
         /// <summary>
@@ -229,28 +203,40 @@ namespace Loot2
         public string generateLoot(Loot rawItem)
         {
             string item = "";
-            List<Operation> cloneOpList = new List<Operation>();
-            cloneOpList.AddRange(rawItem.operationsList);
-
             item += rawItem.name + " [" + rawItem.type + "] ";
             //Itemname + Typen + i * (Operationname + Wert) 
             //(Bei dem Wert 0 wird dieser ausgeblendet)
             if (rawItem.operationsList.Count != 0)
             {
-                for (int i = 0; i < rawItem.opCount; i++)
+                List<Operation> FixedOpList = new List<Operation>();
+                List<Operation> NonFixedOpList = new List<Operation>();
+                FixedOpList.AddRange(rawItem.operationsList.FindAll(o => o.fixedOp));
+                NonFixedOpList.AddRange(rawItem.operationsList.FindAll(o => !o.fixedOp));
+
+                for (int i = 0; i < NonFixedOpList.Count; i++)
                 {
-                    int rdmOp = randomizer.Next(0, cloneOpList.Count);
-                    int rdmName = randomizer.Next(0, cloneOpList[rdmOp].attribName.Count);
-                    item += " || " + cloneOpList[rdmOp].attribName[rdmName];
-                    if (cloneOpList[rdmOp].intervall[1] != 0)
-                    {
-                        int tempValue = randomizer.Next(cloneOpList[rdmOp].intervall[0], cloneOpList[rdmOp].intervall[1] + 1);
-                        item += "(" + tempValue + ")";
-                    }
-                    cloneOpList.RemoveAt(rdmOp);
+                    int rdmOp = randomizer.Next(0, NonFixedOpList.Count);
+                    Operation op = NonFixedOpList[rdmOp];
+                    processOperation(op, ref item);
+                    NonFixedOpList.RemoveAt(rdmOp);
+                }
+                foreach (Operation op in FixedOpList)
+                {
+                    processOperation(op, ref item);
                 }
             }
             return item;
+        }
+
+        private void processOperation(Operation op, ref string itemString)
+        {
+            int rdmName = randomizer.Next(0, op.attribName.Count);
+            itemString += " || " + op.attribName[rdmName];
+            if (op.intervall.low != 0)
+            {
+                int tempValue = randomizer.Next(op.intervall.low, op.intervall.high + 1);
+                itemString+= "(" + tempValue + ")";
+            }
         }
 
         /// <summary>
@@ -654,7 +640,7 @@ namespace Loot2
         /// </summary>
         private void initializeLoadMethods()
         {
-            loadMethods = new loadFile[] { xmlLoad, jsonLoad, convertAndLoadFromOld };
+            loadMethods = new loadFile[] { jsonLoad, convertAndLoadFromOld };
         }
 
         /// <summary>

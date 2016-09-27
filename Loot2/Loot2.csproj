@@ -36,9 +36,6 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>Net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Polenter.SharpSerializer">
-      <HintPath>Net45\Polenter.SharpSerializer.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -52,7 +49,8 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="YAXLib">
+    <Reference Include="YAXLib, Version=2.13.0.0, Culture=neutral, PublicKeyToken=7cc39f8266ad1835, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>Net45\YAXLib.dll</HintPath>
     </Reference>
   </ItemGroup>

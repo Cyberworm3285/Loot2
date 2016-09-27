@@ -23,8 +23,6 @@ C:\Users\cyber\Desktop\Loot2 - Kopie\Loot2\Loot2\bin\Debug\Newtonsoft.Json.pdb
 C:\Users\cyber\Desktop\Loot2 - Kopie\Loot2\Loot2\bin\Debug\Newtonsoft.Json.xml
 C:\Users\cyber\Desktop\Loot2 - Kopie\Loot2\Loot2\obj\Debug\Loot2.LootGUI.resources
 C:\Users\cyber\Desktop\Loot2 - Kopie\Loot2\Loot2\obj\Debug\Loot2.popUpDia.resources
-C:\Users\cyber\Desktop\Loot2 - Kopie\Loot2\Loot2\bin\Debug\Polenter.SharpSerializer.dll
-C:\Users\cyber\Desktop\Loot2 - Kopie\Loot2\Loot2\bin\Debug\Polenter.SharpSerializer.xml
 C:\Users\cyber\Desktop\Loot2 - Kopie\Loot2\Loot2\bin\Debug\YAXLib.dll
 C:\Users\cyber\Desktop\Loot2 - Kopie\Loot2\Loot2\bin\Debug\YAXLib.pdb
 C:\Users\cyber\Desktop\Loot2 - Kopie\Loot2\Loot2\bin\Debug\YAXLib.xml

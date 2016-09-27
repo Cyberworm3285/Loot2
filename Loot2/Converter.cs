@@ -153,19 +153,18 @@ namespace Loot_Converter
                 {
                     int low;
                     Int32.TryParse(valueString.Substring(0,valueString.IndexOf("-")), out low);
-                    newOp.intervall[0] = low;
                     valueString = valueString.Remove(0,valueString.IndexOf("-")+1);
                     int high;
                     Int32.TryParse(valueString,out high);
-                    newOp.intervall[1] = high;
+                    newOp.intervall = new Loot2.Intervall(low, high);
                 }
                 else
                 {
                     int highLow;
                     Int32.TryParse(valueString, out highLow);
-                    newOp.intervall[0] = highLow;
-                    newOp.intervall[1] = highLow;
+                    newOp.intervall = new Loot2.Intervall(highLow, highLow);
                 }
+                newOp.fixedOp = true;
                 operations.Add(newOp);
                 opPart = opPart.Remove(0,opPart.IndexOf(";") + 1);
                 opCount++;

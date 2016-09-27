@@ -202,7 +202,7 @@
             this.xmlJsonBtn.Name = "xmlJsonBtn";
             this.xmlJsonBtn.Size = new System.Drawing.Size(75, 23);
             this.xmlJsonBtn.TabIndex = 11;
-            this.xmlJsonBtn.Text = "XML";
+            this.xmlJsonBtn.Text = "-";
             this.xmlJsonBtn.UseVisualStyleBackColor = true;
             this.xmlJsonBtn.Click += new System.EventHandler(this.xmlJsonBtn_Click);
             // 
