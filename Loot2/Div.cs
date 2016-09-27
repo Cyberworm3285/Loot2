@@ -167,3 +167,20 @@ namespace Loot2
         }
     }
 }
+
+namespace ExtensionMethods
+{
+    public static class ExtensionMethods
+    {
+        /// <summary>
+        ///     Parsed den string zu einem Int
+        /// </summary>
+        /// <returns><see cref="int"/>></returns>
+        public static int ToInt(this string str)
+        {
+            int result;
+            int.TryParse(str, out result);
+            return result;
+        }
+    }
+}

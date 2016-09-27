@@ -10,8 +10,8 @@ using Newtonsoft.Json;
 namespace Loot_Converter
 {
     /// <summary>
-    ///     am besten ignorieren, das hier ist nur ein rudimentärer Converter, den ich NIE WIEDER ändern werde
-    ///     <para>(Achtung, Spagetticode!)</para>
+    ///     am besten ignorieren, das hier ist nur ein rudimentärer Converter, den ich NIE WIEDER ändern werde 
+    ///     <para>(Achtung, Spagetticode! #Quick'NDirty)</para>
     /// </summary>
     class Converter
     {

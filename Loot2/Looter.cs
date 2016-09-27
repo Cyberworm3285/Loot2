@@ -228,6 +228,11 @@ namespace Loot2
             return item;
         }
 
+        /// <summary>
+        ///     Fügt einem gegebenen <see cref="string"/> die gegebene <see cref="Operation"/> hinzu 
+        /// </summary>
+        /// <param name="op">Ausgangs-<see cref="Operation"/></param>
+        /// <param name="itemString"><see cref="string"/> zum anheften</param>
         private void processOperation(Operation op, ref string itemString)
         {
             int rdmName = randomizer.Next(0, op.attribName.Count);

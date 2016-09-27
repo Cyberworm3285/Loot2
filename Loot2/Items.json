@@ -4,7 +4,7 @@
       "name": "Dagger",
       "type": "Einhandwaffe",
       "tags": "",
-      "questTags": [],
+      "questTags": ["pimmel"],
       "areaTags": [],
       "maxLootable": -1,
       "rarity": 300,
