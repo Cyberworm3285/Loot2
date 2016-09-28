@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Drawing;
 using Newtonsoft.Json;
+using System.Windows.Forms;
 
 namespace Loot2
 {
@@ -43,12 +44,13 @@ namespace Loot2
                 {
                     lowValue = 0,
                     highvalue = 1000,
-                    autoLoadType = 2,
+                    autoLoadType = 0,
                     autoSmoothIterator = -1,
                     lootAlg = 0,
                     rarBoundsCfg = new int[] { int.MaxValue, 600, 300, 100, int.MinValue },
                     rarNamesCfg = new string[] { "Normal", "Verbessert", "Überlegen", "Legendär" },
                     rarColCfg = new Color[] { Color.LightGray, Color.Green, Color.DarkViolet, Color.DarkGoldenrod },
+                    rarDesriptionCfg = new string[] { "Mega kacke", "Geht so", "Schon ice", "Töfte" },
                     useAreaCheckBx = true,
                     useQuestCheckBx = true
                 };
@@ -126,6 +128,12 @@ namespace Loot2
         ///     Farben der Marker am Diagramm (<see cref="popUpDia"/>)
         /// </summary>
         public Color[] rarColCfg { get; set; }
+        [YAXLib.YAXValueFor("Rarity Cols")]
+        [YAXLib.YAXCollection(YAXLib.YAXCollectionSerializationTypes.Recursive)]
+        /// <summary>
+        ///     Beschreibung für die Seltenheiten
+        /// </summary>
+        public string[] rarDesriptionCfg { get; set; }
         [YAXLib.YAXComment("Boolean, ob der Area-Tag verwendet werden soll")]
         [YAXLib.YAXAttributeFor("Load")]
         /// <summary>
@@ -144,16 +152,16 @@ namespace Loot2
         /// </summary>
         /// <param name="rar">Zahl, die die Seltenheit repräsentiert</param>
         /// <returns>Name und Farbe</returns>
-        public Tuple<string, Color> getRaritySpecs(int rar)
+        public Tuple<string ,int, Color> getRaritySpecs(int rar)
         {
             for (int i = 0; i < this.rarBoundsCfg.Length; i++)
             {
                 if ((rar < rarBoundsCfg[i]) && (rar >= rarBoundsCfg[i+1]))
                 {
-                    return Tuple.Create<string, Color>(rarNamesCfg[i], (rarColCfg[i]==Color.DarkSlateGray||rarColCfg[i]==Color.Black)?Color.LightGray:rarColCfg[i]);
+                    return Tuple.Create<string ,int,  Color>(rarNamesCfg[i],i , (rarColCfg[i]==Color.DarkSlateGray||rarColCfg[i]==Color.Black)?Color.LightGray:rarColCfg[i]);
                 }
             }
-            return Tuple.Create<string, Color>("[Fehler]", Color.Orange);
+            return Tuple.Create<string ,int , Color>("[Fehler]",0 , Color.Orange);
         }
     }
 

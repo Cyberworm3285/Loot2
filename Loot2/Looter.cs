@@ -56,6 +56,7 @@ namespace Loot2
         /// </summary>
         public List<string> algNames = new List<string> { "Scheiß_drauf", "Faul_Mit_Parameter", "Smooth", "Smooth_PCR" };
         public List<string> typeNames = new List<string>() { "JSON", "Vorgänger" };
+        private int actRar;
 
         /// <summary>
         ///     für abwärts-Kompatibilität zu älteren Versionen (kein XML und json)
@@ -110,6 +111,7 @@ namespace Loot2
             config = cfg;
             initializeLootAlgs();
             initializeLoadMethods();
+            rarityOutput.Click += rarButtonClick;
         }
 
         /// <summary>
@@ -231,9 +233,15 @@ namespace Loot2
                 }
             }
             var tup = config.getRaritySpecs(rawItem.rarity);
-            rarityOutput.BackColor = tup.Item2;
             rarityOutput.Text = tup.Item1;
+            actRar = tup.Item2;
+            rarityOutput.BackColor = tup.Item3;
             return item;
+        }
+
+        private void rarButtonClick(object sender, EventArgs e)
+        {
+            logOutput.Items.Add(config.rarDesriptionCfg[actRar]);
         }
 
         /// <summary>
@@ -457,6 +465,7 @@ namespace Loot2
         private Loot lootAlgorithm04(int unten, int oben, string tags, bool blackWhite, string nameFilter, bool extrainfo, List<Loot> source)
         {
             writeLog("Algorithmus: " + algNames[3], extrainfo);
+            writeLog("(Bounds werden ignoriert)", extrainfo);
             //Random Wert und Variablen zum Übergeben/Rechnen
             int rng = randomizer.Next(0, 1001);
             int i = 1;

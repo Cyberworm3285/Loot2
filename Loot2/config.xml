@@ -5,10 +5,17 @@
   <Rarity_Names rarNamesCfg="Normal,Verbessert,Überlegen,Legendär,Artefakt" />
   <!-- Farben der Wahrscheinlickeitsabtrennung (muss gleichviele Elemente haben wie rarNames&rarBounds!) -->
   <rarColCfg>
-	<Color>DarkSlateGray</Color>
+	  <Color>DarkSlateGray</Color>
     <Color>Green</Color>
     <Color>DarkViolet</Color>
     <Color>DarkGoldenrod</Color>
-	<Color>Red</Color>
+	  <Color>Red</Color>
   </rarColCfg>
+  <rarDesriptionCfg>
+    <String>Mega kacke</String>
+    <String>Geht so</String>
+    <String>Schon ice</String>
+    <String>Töfte</String>
+    <String>Meeega krass</String>
+  </rarDesriptionCfg>
 </Config>
