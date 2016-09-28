@@ -54,8 +54,9 @@ namespace Loot2
         /// <summary>
         ///     Liste mit Namen für die Loot-Algorithmen
         /// </summary>
-        public List<string> algNames = new List<string> { "Scheiß_drauf", "Faul_Mit_Parameter", "Skin_Gambling", "Skin_Gambling_Adv" };
+        public List<string> algNames = new List<string> { "Scheiß_drauf", "Faul_Mit_Parameter", "Smooth", "Smooth_PCR" };
         public List<string> typeNames = new List<string>() { "JSON", "Vorgänger" };
+        private int actRar;
 
         /// <summary>
         ///     für abwärts-Kompatibilität zu älteren Versionen (kein XML und json)
@@ -76,6 +77,10 @@ namespace Loot2
         ///     zum Auflisten der item-Typen
         /// </summary>
         private CheckedListBox typeOutput, areaTags, questTags;
+        /// <summary>
+        ///     zum Output der Seltenheit des letzten Loots
+        /// </summary>
+        private Button rarityOutput;
 
         /// <summary>
         ///     <see cref="popUpDia"/> ist die Owner-<see cref="Form"/> vom Diagramm
@@ -93,11 +98,12 @@ namespace Loot2
         /// <param name="lOutput">Die Listbox in der ggf. die Zwischenschritte ausgegeben werden sollen</param>
         /// <param name="tOutput">Die Checked Listbox, in der die Itemtypes ausgegeben werden sollen</param>
         /// <param name="cfg">Die Configurationsdatei aus dem Hauptordner geladen (mit <see cref="ConfigLoader"/>)</param>
-        public Looter(ListBox outputList, ListBox lOutput, CheckedListBox tOutput, Config cfg, CheckedListBox aTags, CheckedListBox qTags)
+        public Looter(ListBox outputList, ListBox lOutput, CheckedListBox tOutput, Config cfg, CheckedListBox aTags, CheckedListBox qTags, Button rarOutput)
         {
             output = outputList;
             logOutput = lOutput;
             typeOutput = tOutput;
+            rarityOutput = rarOutput;
             areaTags = aTags;
             questTags = qTags;
             Charto = new popUpDia(cfg);
@@ -105,6 +111,7 @@ namespace Loot2
             config = cfg;
             initializeLootAlgs();
             initializeLoadMethods();
+            rarityOutput.Click += rarButtonClick;
         }
 
         /// <summary>
@@ -131,8 +138,8 @@ namespace Loot2
         /// </summary>
         public void jsonSave()
         {
-            string path = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, "Items_Dummy.json");
-            File.WriteAllText(path, Newtonsoft.Json.JsonConvert.SerializeObject(lootLib, Newtonsoft.Json.Formatting.Indented));
+            string path = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName,"Items", "JSON_Output", "Items.json");
+            File.WriteAllText(path, Newtonsoft.Json.JsonConvert.SerializeObject(lootLib.lootList, Newtonsoft.Json.Formatting.Indented));
         }
 
         /// <summary>
@@ -140,8 +147,8 @@ namespace Loot2
         /// </summary>
         public void jsonLoad()
         {
-            string path = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, "Items.json");
-            lootLib = Newtonsoft.Json.JsonConvert.DeserializeObject<LootLib>(File.ReadAllText(path));
+            string path = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, "Items", "JSON");
+            lootLib.SerializeFromDir(path);
             loadCheckBoxes();
         }
 
@@ -225,7 +232,16 @@ namespace Loot2
                     processOperation(op, ref item);
                 }
             }
+            var tup = config.getRaritySpecs(rawItem.rarity);
+            rarityOutput.Text = tup.Item1;
+            actRar = tup.Item2;
+            rarityOutput.BackColor = tup.Item3;
             return item;
+        }
+
+        private void rarButtonClick(object sender, EventArgs e)
+        {
+            logOutput.Items.Add(config.rarDesriptionCfg[actRar]);
         }
 
         /// <summary>

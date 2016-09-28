@@ -26,7 +26,7 @@ namespace Loot_Converter
 
             try
             {
-                lines = File.ReadAllLines(Path.Combine(path,"Items","Items.txt"));
+                lines = File.ReadAllLines(Path.Combine(path,"Items", "Decrepated", "Items.txt"));
             }
             catch (FileNotFoundException ex)
             {
@@ -108,7 +108,7 @@ namespace Loot_Converter
                 string pathPart = nameText.Substring(0, nameText.IndexOf("("));
                 nameText = nameText.Remove(0,nameText.IndexOf("(")+1);
                 string lineFilter = nameText.Substring(0,nameText.IndexOf(")")+1);
-                string opPath = Path.Combine(pathbase,"Items","Parameter",pathPart + ".txt");
+                string opPath = Path.Combine(pathbase,"Items", "Decrepated", "Parameter",pathPart + ".txt");
                 try
                 { 
                     if (lineFilter.IndexOf("r") != -1)

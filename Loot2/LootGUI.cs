@@ -56,7 +56,7 @@ namespace Loot2
             InitializeComponent();
             config = configLoader.getConfig();
             createTabs(config.useAreaCheckBx, config.useQuestCheckBx);
-            looter = new Looter(itemLBx,logLBx,typeChckLBx,config,areaChckLBx,questChckLBx);
+            looter = new Looter(itemLBx, logLBx, typeChckLBx, config, areaChckLBx, questChckLBx, rarOutput);
             initializeConfigs();
             lootModeBtn.Text += " "+looter.algNames[lootMode];
             xmlJsonBtn.Text = looter.typeNames[0];
@@ -185,9 +185,9 @@ namespace Loot2
         /// <param name="e"></param>
         private void xmlJsonBtn_Click(object sender, EventArgs e)
         {
-            xmlJsonBtn.Text = looter.typeNames[fileMode];
             fileMode++;
             fileMode %= looter.typeNames.Count; // nur Werte von 0-2, also zyklisch mit Modulo umgesetzt
+            xmlJsonBtn.Text = looter.typeNames[fileMode];
         }
 
         /// <summary>
