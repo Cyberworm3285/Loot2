@@ -465,6 +465,7 @@ namespace Loot2
         private Loot lootAlgorithm04(int unten, int oben, string tags, bool blackWhite, string nameFilter, bool extrainfo, List<Loot> source)
         {
             writeLog("Algorithmus: " + algNames[3], extrainfo);
+            writeLog("(Bounds werden ignoriert)", extrainfo);
             //Random Wert und Variablen zum Übergeben/Rechnen
             int rng = randomizer.Next(0, 1001);
             int i = 1;
