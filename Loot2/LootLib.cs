@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace Loot2
 {
@@ -23,6 +24,16 @@ namespace Loot2
         public LootLib()
         {
             lootList = new List<Loot>();
+        }
+
+        public void SerializeFromDir(string path)
+        {
+            lootList.Clear();
+            string[] allFiles = Directory.GetFiles(path);
+            foreach (string s in allFiles)
+            {
+                lootList.AddRange(Newtonsoft.Json.JsonConvert.DeserializeObject<List<Loot>>(File.ReadAllText(s)));
+            }
         }
 
         /// <summary>

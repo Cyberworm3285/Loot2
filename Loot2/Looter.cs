@@ -54,7 +54,7 @@ namespace Loot2
         /// <summary>
         ///     Liste mit Namen für die Loot-Algorithmen
         /// </summary>
-        public List<string> algNames = new List<string> { "Scheiß_drauf", "Faul_Mit_Parameter", "Skin_Gambling", "Skin_Gambling_Adv" };
+        public List<string> algNames = new List<string> { "Scheiß_drauf", "Faul_Mit_Parameter", "Smooth", "Smooth_PCR" };
         public List<string> typeNames = new List<string>() { "JSON", "Vorgänger" };
 
         /// <summary>
@@ -131,8 +131,8 @@ namespace Loot2
         /// </summary>
         public void jsonSave()
         {
-            string path = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, "Items_Dummy.json");
-            File.WriteAllText(path, Newtonsoft.Json.JsonConvert.SerializeObject(lootLib, Newtonsoft.Json.Formatting.Indented));
+            string path = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName,"Items", "JSON_Output", "Items.json");
+            File.WriteAllText(path, Newtonsoft.Json.JsonConvert.SerializeObject(lootLib.lootList, Newtonsoft.Json.Formatting.Indented));
         }
 
         /// <summary>
@@ -140,8 +140,8 @@ namespace Loot2
         /// </summary>
         public void jsonLoad()
         {
-            string path = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, "Items.json");
-            lootLib = Newtonsoft.Json.JsonConvert.DeserializeObject<LootLib>(File.ReadAllText(path));
+            string path = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, "Items", "JSON");
+            lootLib.SerializeFromDir(path);
             loadCheckBoxes();
         }
 
