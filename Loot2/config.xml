@@ -5,7 +5,7 @@
   <Rarity_Names rarNamesCfg="Normal,Verbessert,Überlegen,Legendär,Artefakt" />
   <!-- Farben der Wahrscheinlickeitsabtrennung (muss gleichviele Elemente haben wie rarNames&rarBounds!) -->
   <rarColCfg>
-	<Color>Black</Color>
+	<Color>DarkSlateGray</Color>
     <Color>Green</Color>
     <Color>DarkViolet</Color>
     <Color>DarkGoldenrod</Color>

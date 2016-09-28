@@ -76,6 +76,10 @@ namespace Loot2
         ///     zum Auflisten der item-Typen
         /// </summary>
         private CheckedListBox typeOutput, areaTags, questTags;
+        /// <summary>
+        ///     zum Output der Seltenheit des letzten Loots
+        /// </summary>
+        private Button rarityOutput;
 
         /// <summary>
         ///     <see cref="popUpDia"/> ist die Owner-<see cref="Form"/> vom Diagramm
@@ -93,11 +97,12 @@ namespace Loot2
         /// <param name="lOutput">Die Listbox in der ggf. die Zwischenschritte ausgegeben werden sollen</param>
         /// <param name="tOutput">Die Checked Listbox, in der die Itemtypes ausgegeben werden sollen</param>
         /// <param name="cfg">Die Configurationsdatei aus dem Hauptordner geladen (mit <see cref="ConfigLoader"/>)</param>
-        public Looter(ListBox outputList, ListBox lOutput, CheckedListBox tOutput, Config cfg, CheckedListBox aTags, CheckedListBox qTags)
+        public Looter(ListBox outputList, ListBox lOutput, CheckedListBox tOutput, Config cfg, CheckedListBox aTags, CheckedListBox qTags, Button rarOutput)
         {
             output = outputList;
             logOutput = lOutput;
             typeOutput = tOutput;
+            rarityOutput = rarOutput;
             areaTags = aTags;
             questTags = qTags;
             Charto = new popUpDia(cfg);
@@ -225,6 +230,9 @@ namespace Loot2
                     processOperation(op, ref item);
                 }
             }
+            var tup = config.getRaritySpecs(rawItem.rarity);
+            rarityOutput.BackColor = tup.Item2;
+            rarityOutput.Text = tup.Item1;
             return item;
         }
 

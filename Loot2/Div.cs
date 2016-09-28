@@ -48,7 +48,7 @@ namespace Loot2
                     lootAlg = 0,
                     rarBoundsCfg = new int[] { int.MaxValue, 600, 300, 100, int.MinValue },
                     rarNamesCfg = new string[] { "Normal", "Verbessert", "Überlegen", "Legendär" },
-                    rarColCfg = new Color[] { Color.DarkSlateGray, Color.Green, Color.DarkViolet, Color.DarkGoldenrod },
+                    rarColCfg = new Color[] { Color.LightGray, Color.Green, Color.DarkViolet, Color.DarkGoldenrod },
                     useAreaCheckBx = true,
                     useQuestCheckBx = true
                 };
@@ -138,6 +138,23 @@ namespace Loot2
         ///      Gibt an, ob eine Checked Listbox mit ausgelesenen Quest-Strings als GUI Element verwendet werden soll
         /// </summary>
         public bool useQuestCheckBx { get; set; }
+
+        /// <summary>
+        ///     Gibt den namen und die Farbe der Seltenheit mit dem gegebenen Parameter in einem <see cref="Tuple"/> aus 
+        /// </summary>
+        /// <param name="rar">Zahl, die die Seltenheit repräsentiert</param>
+        /// <returns>Name und Farbe</returns>
+        public Tuple<string, Color> getRaritySpecs(int rar)
+        {
+            for (int i = 0; i < this.rarBoundsCfg.Length; i++)
+            {
+                if ((rar < rarBoundsCfg[i]) && (rar >= rarBoundsCfg[i+1]))
+                {
+                    return Tuple.Create<string, Color>(rarNamesCfg[i], (rarColCfg[i]==Color.DarkSlateGray||rarColCfg[i]==Color.Black)?Color.LightGray:rarColCfg[i]);
+                }
+            }
+            return Tuple.Create<string, Color>("[Fehler]", Color.Orange);
+        }
     }
 
     /// <summary>

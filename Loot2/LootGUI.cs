@@ -56,7 +56,7 @@ namespace Loot2
             InitializeComponent();
             config = configLoader.getConfig();
             createTabs(config.useAreaCheckBx, config.useQuestCheckBx);
-            looter = new Looter(itemLBx,logLBx,typeChckLBx,config,areaChckLBx,questChckLBx);
+            looter = new Looter(itemLBx, logLBx, typeChckLBx, config, areaChckLBx, questChckLBx, rarOutput);
             initializeConfigs();
             lootModeBtn.Text += " "+looter.algNames[lootMode];
             xmlJsonBtn.Text = looter.typeNames[0];

@@ -52,6 +52,7 @@
             this.smoothTxt = new System.Windows.Forms.TextBox();
             this.smoothLbl = new System.Windows.Forms.Label();
             this.AlgCheckBtn = new System.Windows.Forms.Button();
+            this.rarOutput = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // saveBtn
@@ -270,11 +271,21 @@
             this.AlgCheckBtn.UseVisualStyleBackColor = true;
             this.AlgCheckBtn.Click += new System.EventHandler(this.AlgCheckBtn_Click);
             // 
+            // rarOutput
+            // 
+            this.rarOutput.Location = new System.Drawing.Point(660, 100);
+            this.rarOutput.Name = "rarOutput";
+            this.rarOutput.Size = new System.Drawing.Size(108, 49);
+            this.rarOutput.TabIndex = 25;
+            this.rarOutput.Text = "-";
+            this.rarOutput.UseVisualStyleBackColor = true;
+            // 
             // LootGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(780, 431);
+            this.Controls.Add(this.rarOutput);
             this.Controls.Add(this.AlgCheckBtn);
             this.Controls.Add(this.smoothLbl);
             this.Controls.Add(this.smoothTxt);
@@ -332,6 +343,7 @@
         private System.Windows.Forms.TextBox smoothTxt;
         private System.Windows.Forms.Label smoothLbl;
         private System.Windows.Forms.Button AlgCheckBtn;
+        private System.Windows.Forms.Button rarOutput;
     }
 }
 
