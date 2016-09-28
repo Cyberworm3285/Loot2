@@ -128,7 +128,6 @@ namespace Loot2
         ///     Farben der Marker am Diagramm (<see cref="popUpDia"/>)
         /// </summary>
         public Color[] rarColCfg { get; set; }
-        [YAXLib.YAXComment("Farben der Wahrscheinlickeitsabtrennung (muss gleichviele Elemente haben wie rarNames&rarBounds!)")]
         [YAXLib.YAXValueFor("Rarity Cols")]
         [YAXLib.YAXCollection(YAXLib.YAXCollectionSerializationTypes.Recursive)]
         /// <summary>
