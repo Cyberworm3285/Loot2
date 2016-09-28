@@ -73,14 +73,14 @@ namespace Loot2
     /// </summary>
     public class Config
     {
-        [YAXLib.YAXComment("untere Grenze (0-1000)")]
+        [YAXLib.YAXComment("untere Grenze (Standard 0-1000)")]
         [YAXLib.YAXValueFor("Unten")]
         [YAXLib.YAXAttributeFor("Bounds")]
         /// <summary>
         ///     standard Wert für untere Grenze in <see cref="LootGUI"/>
         /// </summary>
         public int lowValue { get; set; }
-        [YAXLib.YAXComment("obere Grenze (0-1000)")]
+        [YAXLib.YAXComment("obere Grenze (Standard 0-1000)")]
         [YAXLib.YAXValueFor("Oben")]
         [YAXLib.YAXAttributeFor("Bounds")]
         /// <summary>
