@@ -1,50 +1,943 @@
 [
   {
-    "name": "DummyName",
-    "type": "DummyType",
-    "tags": "DummyTags",
-    "questTags": [
-      "DummyQuest1",
-      "DummyQuest2"
-    ],
-    "areaTags": [
-      "DummyArea1",
-      "DummyArea2"
-    ],
+    "name": "Dagger",
+    "type": "Einhandwaffe",
+    "tags": "",
+    "questTags": [],
+    "areaTags": [],
     "maxLootable": -1,
-    "rarity": 1000,
-    "opCount": 1,
+    "rarity": 300,
+    "opCount": 0,
     "operationsList": [
       {
         "fixedOp": true,
         "attribName": [
-          "DummyAttribut1_1",
-          "DummyAttribut1_2"
+          "Physikalisch",
+          "Frost",
+          "Feuer",
+          "Blitz",
+          "Gift",
+          "Arkan"
         ],
         "intervall": {
-          "low": 0,
+          "low": 1,
+          "high": 2
+        }
+      }
+    ]
+  },
+  {
+    "name": "Keule",
+    "type": "Einhandwaffe",
+    "tags": "",
+    "questTags": [],
+    "areaTags": [],
+    "maxLootable": -1,
+    "rarity": 400,
+    "opCount": 0,
+    "operationsList": [
+      {
+        "fixedOp": true,
+        "attribName": [
+          "Physikalisch",
+          "Frost",
+          "Feuer",
+          "Blitz",
+          "Gift",
+          "Arkan"
+        ],
+        "intervall": {
+          "low": 1,
           "high": 1
         }
-      },
+      }
+    ]
+  },
+  {
+    "name": "Schwert",
+    "type": "Einhandwaffe",
+    "tags": "",
+    "questTags": [],
+    "areaTags": [],
+    "maxLootable": -1,
+    "rarity": 100,
+    "opCount": 0,
+    "operationsList": [
       {
-        "fixedOp": false,
+        "fixedOp": true,
         "attribName": [
-          "DummyAttribut2_1",
-          "DummyAttribut2_2"
+          "Physikalisch",
+          "Frost",
+          "Feuer",
+          "Blitz",
+          "Gift",
+          "Arkan"
         ],
         "intervall": {
-          "low": 0,
+          "low": 2,
+          "high": 2
+        }
+      }
+    ]
+  },
+  {
+    "name": "Saebel",
+    "type": "Einhandwaffe",
+    "tags": "",
+    "questTags": [],
+    "areaTags": [],
+    "maxLootable": -1,
+    "rarity": 100,
+    "opCount": 0,
+    "operationsList": [
+      {
+        "fixedOp": true,
+        "attribName": [
+          "Physikalisch",
+          "Frost",
+          "Feuer",
+          "Blitz",
+          "Gift",
+          "Arkan"
+        ],
+        "intervall": {
+          "low": 2,
+          "high": 2
+        }
+      }
+    ]
+  },
+  {
+    "name": "Holzdildo",
+    "type": "Einhandwaffe",
+    "tags": "",
+    "questTags": [],
+    "areaTags": [],
+    "maxLootable": -1,
+    "rarity": 40,
+    "opCount": 0,
+    "operationsList": [
+      {
+        "fixedOp": true,
+        "attribName": [
+          "Physikalisch",
+          "Frost",
+          "Feuer",
+          "Blitz",
+          "Gift",
+          "Arkan"
+        ],
+        "intervall": {
+          "low": 3,
+          "high": 3
+        }
+      }
+    ]
+  },
+  {
+    "name": "Floete",
+    "type": "Einhandwaffe",
+    "tags": "",
+    "questTags": [],
+    "areaTags": [],
+    "maxLootable": -1,
+    "rarity": 60,
+    "opCount": 0,
+    "operationsList": [
+      {
+        "fixedOp": true,
+        "attribName": [
+          "Physikalisch"
+        ],
+        "intervall": {
+          "low": 1,
           "high": 1
         }
-      },
+      }
+    ]
+  },
+  {
+    "name": "Katana",
+    "type": "Einhandwaffe",
+    "tags": "",
+    "questTags": [],
+    "areaTags": [],
+    "maxLootable": -1,
+    "rarity": 90,
+    "opCount": 0,
+    "operationsList": [
       {
-        "fixedOp": false,
+        "fixedOp": true,
         "attribName": [
-          "DummyAttribut3_1",
-          "DummyAttribut3_2"
+          "Physikalisch",
+          "Frost",
+          "Feuer",
+          "Blitz",
+          "Gift",
+          "Arkan"
         ],
         "intervall": {
-          "low": 0,
+          "low": 3,
+          "high": 3
+        }
+      }
+    ]
+  },
+  {
+    "name": "AlteMetFlasche",
+    "type": "Einhandwaffe",
+    "tags": "",
+    "questTags": [],
+    "areaTags": [],
+    "maxLootable": -1,
+    "rarity": 600,
+    "opCount": 0,
+    "operationsList": [
+      {
+        "fixedOp": true,
+        "attribName": [
+          "Physikalisch"
+        ],
+        "intervall": {
+          "low": 1,
+          "high": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "AbgetrennterArm",
+    "type": "Einhandwaffe",
+    "tags": "",
+    "questTags": [],
+    "areaTags": [],
+    "maxLootable": -1,
+    "rarity": 400,
+    "opCount": 0,
+    "operationsList": [
+      {
+        "fixedOp": true,
+        "attribName": [
+          "Physikalisch"
+        ],
+        "intervall": {
+          "low": 1,
+          "high": 2
+        }
+      }
+    ]
+  },
+  {
+    "name": "Knochen",
+    "type": "Einhandwaffe",
+    "tags": "",
+    "questTags": [],
+    "areaTags": [],
+    "maxLootable": -1,
+    "rarity": 400,
+    "opCount": 0,
+    "operationsList": [
+      {
+        "fixedOp": true,
+        "attribName": [
+          "Physikalisch",
+          "Frost",
+          "Feuer",
+          "Blitz",
+          "Gift",
+          "Arkan"
+        ],
+        "intervall": {
+          "low": 1,
+          "high": 2
+        }
+      }
+    ]
+  },
+  {
+    "name": "CloudsBusterSword",
+    "type": "Zweihandwaffe",
+    "tags": "",
+    "questTags": [],
+    "areaTags": [],
+    "maxLootable": -1,
+    "rarity": 50,
+    "opCount": 0,
+    "operationsList": [
+      {
+        "fixedOp": true,
+        "attribName": [
+          "Physikalisch",
+          "Frost",
+          "Feuer",
+          "Blitz",
+          "Gift",
+          "Arkan"
+        ],
+        "intervall": {
+          "low": 3,
+          "high": 3
+        }
+      }
+    ]
+  },
+  {
+    "name": "DerHurenBasher",
+    "type": "Zweihandwaffe",
+    "tags": "",
+    "questTags": [],
+    "areaTags": [],
+    "maxLootable": -1,
+    "rarity": 100,
+    "opCount": 0,
+    "operationsList": [
+      {
+        "fixedOp": true,
+        "attribName": [
+          "Physikalisch",
+          "Frost",
+          "Feuer",
+          "Blitz",
+          "Gift",
+          "Arkan"
+        ],
+        "intervall": {
+          "low": 2,
+          "high": 3
+        }
+      }
+    ]
+  },
+  {
+    "name": "MagicGiantStock",
+    "type": "Zweihandwaffe",
+    "tags": "",
+    "questTags": [],
+    "areaTags": [],
+    "maxLootable": -1,
+    "rarity": 200,
+    "opCount": 0,
+    "operationsList": [
+      {
+        "fixedOp": true,
+        "attribName": [
+          "Arkan"
+        ],
+        "intervall": {
+          "low": 2,
+          "high": 2
+        }
+      }
+    ]
+  },
+  {
+    "name": "Kriegshammer",
+    "type": "Zweihandwaffe",
+    "tags": "",
+    "questTags": [],
+    "areaTags": [],
+    "maxLootable": -1,
+    "rarity": 300,
+    "opCount": 0,
+    "operationsList": [
+      {
+        "fixedOp": true,
+        "attribName": [
+          "Physikalisch",
+          "Frost",
+          "Feuer",
+          "Blitz",
+          "Gift",
+          "Arkan"
+        ],
+        "intervall": {
+          "low": 2,
+          "high": 2
+        }
+      }
+    ]
+  },
+  {
+    "name": "ZweischneidigeAxt",
+    "type": "Zweihandwaffe",
+    "tags": "",
+    "questTags": [],
+    "areaTags": [],
+    "maxLootable": -1,
+    "rarity": 100,
+    "opCount": 0,
+    "operationsList": [
+      {
+        "fixedOp": true,
+        "attribName": [
+          "Physikalisch",
+          "Frost",
+          "Feuer",
+          "Blitz",
+          "Gift",
+          "Arkan"
+        ],
+        "intervall": {
+          "low": 3,
+          "high": 3
+        }
+      }
+    ]
+  },
+  {
+    "name": "Morgenstern",
+    "type": "Zweihandwaffe",
+    "tags": "",
+    "questTags": [],
+    "areaTags": [],
+    "maxLootable": -1,
+    "rarity": 200,
+    "opCount": 0,
+    "operationsList": [
+      {
+        "fixedOp": true,
+        "attribName": [
+          "Physikalisch",
+          "Frost",
+          "Feuer",
+          "Blitz",
+          "Gift",
+          "Arkan"
+        ],
+        "intervall": {
+          "low": 3,
+          "high": 3
+        }
+      }
+    ]
+  },
+  {
+    "name": "Cuntholz",
+    "type": "Zweihandwaffe",
+    "tags": "",
+    "questTags": [],
+    "areaTags": [],
+    "maxLootable": -1,
+    "rarity": 50,
+    "opCount": 0,
+    "operationsList": [
+      {
+        "fixedOp": true,
+        "attribName": [
+          "Physikalisch",
+          "Frost",
+          "Blitz",
+          "Gift",
+          "Arkan"
+        ],
+        "intervall": {
+          "low": 2,
+          "high": 3
+        }
+      }
+    ]
+  },
+  {
+    "name": "Dicker Holzstab",
+    "type": "Zweihandwaffe",
+    "tags": "",
+    "questTags": [],
+    "areaTags": [],
+    "maxLootable": -1,
+    "rarity": 500,
+    "opCount": 0,
+    "operationsList": [
+      {
+        "fixedOp": true,
+        "attribName": [
+          "Physikalisch"
+        ],
+        "intervall": {
+          "low": 1,
+          "high": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "Armbrust",
+    "type": "Fernkampfwaffe",
+    "tags": "",
+    "questTags": [],
+    "areaTags": [],
+    "maxLootable": -1,
+    "rarity": 300,
+    "opCount": 0,
+    "operationsList": [
+      {
+        "fixedOp": true,
+        "attribName": [
+          "Physikalisch",
+          "Frost",
+          "Feuer",
+          "Blitz",
+          "Gift",
+          "Arkan"
+        ],
+        "intervall": {
+          "low": 2,
+          "high": 2
+        }
+      }
+    ]
+  },
+  {
+    "name": "Langbogen",
+    "type": "Fernkampfwaffe",
+    "tags": "",
+    "questTags": [],
+    "areaTags": [],
+    "maxLootable": -1,
+    "rarity": 300,
+    "opCount": 0,
+    "operationsList": [
+      {
+        "fixedOp": true,
+        "attribName": [
+          "Physikalisch",
+          "Frost",
+          "Feuer",
+          "Blitz",
+          "Gift",
+          "Arkan"
+        ],
+        "intervall": {
+          "low": 1,
+          "high": 2
+        }
+      }
+    ]
+  },
+  {
+    "name": "Langbogen",
+    "type": "Fernkampfwaffe",
+    "tags": "",
+    "questTags": [],
+    "areaTags": [],
+    "maxLootable": -1,
+    "rarity": 500,
+    "opCount": 0,
+    "operationsList": [
+      {
+        "fixedOp": true,
+        "attribName": [
+          "Physikalisch"
+        ],
+        "intervall": {
+          "low": 1,
+          "high": 2
+        }
+      }
+    ]
+  },
+  {
+    "name": "Steinschleuder",
+    "type": "Fernkampfwaffe",
+    "tags": "",
+    "questTags": [],
+    "areaTags": [],
+    "maxLootable": -1,
+    "rarity": 600,
+    "opCount": 0,
+    "operationsList": [
+      {
+        "fixedOp": true,
+        "attribName": [
+          "Physikalisch",
+          "Frost",
+          "Feuer",
+          "Blitz",
+          "Gift",
+          "Arkan"
+        ],
+        "intervall": {
+          "low": 1,
+          "high": 2
+        }
+      }
+    ]
+  },
+  {
+    "name": "Flitzebogen",
+    "type": "Fernkampfwaffe",
+    "tags": "",
+    "questTags": [],
+    "areaTags": [],
+    "maxLootable": -1,
+    "rarity": 700,
+    "opCount": 0,
+    "operationsList": [
+      {
+        "fixedOp": true,
+        "attribName": [
+          "Physikalisch"
+        ],
+        "intervall": {
+          "low": 1,
+          "high": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "Elbenbogen",
+    "type": "Fernkampfwaffe",
+    "tags": "",
+    "questTags": [],
+    "areaTags": [],
+    "maxLootable": -1,
+    "rarity": 100,
+    "opCount": 0,
+    "operationsList": [
+      {
+        "fixedOp": true,
+        "attribName": [
+          "Physikalisch",
+          "Frost",
+          "Feuer",
+          "Blitz",
+          "Gift",
+          "Arkan"
+        ],
+        "intervall": {
+          "low": 2,
+          "high": 3
+        }
+      }
+    ]
+  },
+  {
+    "name": "Ziemlich Nicer Bogen",
+    "type": "Fernkampfwaffe",
+    "tags": "",
+    "questTags": [],
+    "areaTags": [],
+    "maxLootable": -1,
+    "rarity": 90,
+    "opCount": 0,
+    "operationsList": [
+      {
+        "fixedOp": true,
+        "attribName": [
+          "Frost",
+          "Feuer",
+          "Blitz",
+          "Gift",
+          "Arkan"
+        ],
+        "intervall": {
+          "low": 2,
+          "high": 3
+        }
+      }
+    ]
+  },
+  {
+    "name": "Holzruestung",
+    "type": "Armor",
+    "tags": "",
+    "questTags": [],
+    "areaTags": [],
+    "maxLootable": -1,
+    "rarity": 400,
+    "opCount": 0,
+    "operationsList": [
+      {
+        "fixedOp": true,
+        "attribName": [
+          "Physikalisch Def"
+        ],
+        "intervall": {
+          "low": 1,
+          "high": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "HelmDesSchwarzenRitters",
+    "type": "Armor",
+    "tags": "",
+    "questTags": [],
+    "areaTags": [],
+    "maxLootable": -1,
+    "rarity": 90,
+    "opCount": 0,
+    "operationsList": [
+      {
+        "fixedOp": true,
+        "attribName": [
+          "Physikalisch Def",
+          "Frost Def",
+          "Feuer Def",
+          "Blitz Def",
+          "Gift Def",
+          "Arkan Def"
+        ],
+        "intervall": {
+          "low": 1,
+          "high": 3
+        }
+      }
+    ]
+  },
+  {
+    "name": "Mithrilhemd",
+    "type": "Armor",
+    "tags": "",
+    "questTags": [],
+    "areaTags": [],
+    "maxLootable": -1,
+    "rarity": 100,
+    "opCount": 0,
+    "operationsList": [
+      {
+        "fixedOp": true,
+        "attribName": [
+          "Physikalisch Def",
+          "Frost Def",
+          "Feuer Def",
+          "Blitz Def",
+          "Gift Def",
+          "Arkan Def"
+        ],
+        "intervall": {
+          "low": 2,
+          "high": 2
+        }
+      }
+    ]
+  },
+  {
+    "name": "Mega Shiny Koenigliche Ruestung",
+    "type": "Armor",
+    "tags": "",
+    "questTags": [],
+    "areaTags": [],
+    "maxLootable": -1,
+    "rarity": 30,
+    "opCount": 0,
+    "operationsList": [
+      {
+        "fixedOp": true,
+        "attribName": [
+          "Physikalisch Def",
+          "Frost Def",
+          "Feuer Def",
+          "Blitz Def",
+          "Gift Def",
+          "Arkan Def"
+        ],
+        "intervall": {
+          "low": 3,
+          "high": 3
+        }
+      }
+    ]
+  },
+  {
+    "name": "Lederlappen",
+    "type": "Armor",
+    "tags": "",
+    "questTags": [],
+    "areaTags": [],
+    "maxLootable": -1,
+    "rarity": 700,
+    "opCount": 0,
+    "operationsList": [
+      {
+        "fixedOp": true,
+        "attribName": [
+          "Physikalisch Def"
+        ],
+        "intervall": {
+          "low": 1,
+          "high": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "DeepsHelm",
+    "type": "Armor",
+    "tags": "",
+    "questTags": [],
+    "areaTags": [],
+    "maxLootable": -1,
+    "rarity": 300,
+    "opCount": 0,
+    "operationsList": [
+      {
+        "fixedOp": true,
+        "attribName": [
+          "Physikalisch Def",
+          "Frost Def",
+          "Feuer Def",
+          "Blitz Def",
+          "Gift Def",
+          "Arkan Def"
+        ],
+        "intervall": {
+          "low": 2,
+          "high": 2
+        }
+      }
+    ]
+  },
+  {
+    "name": "RostigerPlattenpanzer",
+    "type": "Armor",
+    "tags": "",
+    "questTags": [],
+    "areaTags": [],
+    "maxLootable": -1,
+    "rarity": 300,
+    "opCount": 0,
+    "operationsList": [
+      {
+        "fixedOp": true,
+        "attribName": [
+          "Physikalisch Def"
+        ],
+        "intervall": {
+          "low": 2,
+          "high": 2
+        }
+      }
+    ]
+  },
+  {
+    "name": "Health",
+    "type": "Potion",
+    "tags": "",
+    "questTags": [],
+    "areaTags": [],
+    "maxLootable": -1,
+    "rarity": 600,
+    "opCount": 0,
+    "operationsList": [
+      {
+        "fixedOp": true,
+        "attribName": [
+          "Health"
+        ],
+        "intervall": {
+          "low": 2,
+          "high": 2
+        }
+      }
+    ]
+  },
+  {
+    "name": "Berserker",
+    "type": "Potion",
+    "tags": "",
+    "questTags": [],
+    "areaTags": [],
+    "maxLootable": -1,
+    "rarity": 300,
+    "opCount": 0,
+    "operationsList": [
+      {
+        "fixedOp": true,
+        "attribName": [
+          "Berserker"
+        ],
+        "intervall": {
+          "low": 1,
+          "high": 3
+        }
+      }
+    ]
+  },
+  {
+    "name": "Swiftness",
+    "type": "Potion",
+    "tags": "",
+    "questTags": [],
+    "areaTags": [],
+    "maxLootable": -1,
+    "rarity": 500,
+    "opCount": 0,
+    "operationsList": [
+      {
+        "fixedOp": true,
+        "attribName": [
+          "Swiftness"
+        ],
+        "intervall": {
+          "low": 1,
+          "high": 3
+        }
+      }
+    ]
+  },
+  {
+    "name": "Unsichtbarkeit",
+    "type": "Potion",
+    "tags": "",
+    "questTags": [],
+    "areaTags": [],
+    "maxLootable": -1,
+    "rarity": 50,
+    "opCount": 0,
+    "operationsList": [
+      {
+        "fixedOp": true,
+        "attribName": [
+          "Unsichtbarkeit"
+        ],
+        "intervall": {
+          "low": 1,
+          "high": 3
+        }
+      }
+    ]
+  },
+  {
+    "name": "Met",
+    "type": "Potion",
+    "tags": "",
+    "questTags": [],
+    "areaTags": [],
+    "maxLootable": -1,
+    "rarity": 700,
+    "opCount": 0,
+    "operationsList": [
+      {
+        "fixedOp": true,
+        "attribName": [
+          "Alk"
+        ],
+        "intervall": {
+          "low": 1,
+          "high": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "Bier",
+    "type": "Potion",
+    "tags": "",
+    "questTags": [],
+    "areaTags": [],
+    "maxLootable": -1,
+    "rarity": 700,
+    "opCount": 0,
+    "operationsList": [
+      {
+        "fixedOp": true,
+        "attribName": [
+          "Alk"
+        ],
+        "intervall": {
+          "low": 1,
           "high": 1
         }
       }
