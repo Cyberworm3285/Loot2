@@ -220,7 +220,7 @@ namespace Loot2
                 FixedOpList.AddRange(rawItem.operationsList.FindAll(o => o.fixedOp));
                 NonFixedOpList.AddRange(rawItem.operationsList.FindAll(o => !o.fixedOp));
 
-                for (int i = 0; i < NonFixedOpList.Count; i++)
+                for (int i = 0; i < rawItem.opCount; i++)
                 {
                     int rdmOp = randomizer.Next(0, NonFixedOpList.Count);
                     Operation op = NonFixedOpList[rdmOp];
