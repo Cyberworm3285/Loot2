@@ -69,7 +69,7 @@ namespace Loot2
             areaTags.Add("DummyArea2");
             maxLootable = -1;
             rarity = 1000;
-            opCount = 1;
+            opCount = 2;
             operationsList.Add(new Operation());
             operationsList[0].createDummy(1 , true);
             operationsList.Add(new Operation());

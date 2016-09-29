@@ -200,6 +200,7 @@ namespace Loot2
         {
             looter.createDummy();
             looter.loadCheckBoxes();
+            aktDataTypeLbl.Text = "Dummy";
         }
 
         /// <summary>
