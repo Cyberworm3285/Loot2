@@ -51,7 +51,7 @@ namespace Loot_Converter
                 newLoot.areaTags = new List<string>();
                 newLoot.questTags = new List<string>();
                 newLoot.maxLootable = -1;
-                newLoot.opCount = newLoot.operationsList.Count;
+                newLoot.opCount = 0;
 
                 lootlib.lootList.Add(newLoot);
             }
