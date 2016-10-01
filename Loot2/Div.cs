@@ -201,11 +201,22 @@ namespace ExtensionMethods
         ///     Parsed den string zu einem Int
         /// </summary>
         /// <returns><see cref="int"/>></returns>
-        public static int ToInt(this string str)
+        public static int ToInt(this string str, int replacementOnError)
         {
-            int result;
-            int.TryParse(str, out result);
-            return result;
+            try
+            {
+                int result = int.Parse(str);
+                return result;
+            }
+            catch (FormatException)
+            {
+            }
+            return replacementOnError;
+        }
+
+        public static int ToPositive(this int i)
+        {
+            return (i < 0) ? -1 * i : i;
         }
     }
 }

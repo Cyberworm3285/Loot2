@@ -88,6 +88,7 @@
             this.obenTBx.Size = new System.Drawing.Size(118, 20);
             this.obenTBx.TabIndex = 2;
             this.obenTBx.Text = "1000";
+            this.obenTBx.KeyDown += new System.Windows.Forms.KeyEventHandler(this.obenTBx_KeyDown);
             // 
             // label1
             // 

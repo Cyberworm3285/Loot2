@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using ExtensionMethods;
 
 
 namespace Loot2
@@ -318,6 +319,26 @@ namespace Loot2
                 questChckLBx.Top = 0;
                 questChckLBx.Left = 13;
             }
+        }
+
+        private void editBounds(bool input, TextBox output, int replacement)
+        {
+            if (input)
+            {
+                var specs = config.getRaritySpecs(output.Text.ToInt(replacement)-1);
+                int nextIndex;
+                nextIndex = (specs.Item2 + 1) % config.rarBoundsCfg.Length;
+                output.Text = config.rarBoundsCfg[nextIndex.ToPositive()].ToString();
+
+                int zahl = output.Text.ToInt(0);
+                int indexNext = Array.FindIndex(config.rarBoundsCfg, i => i < zahl);
+               // output.Text = config.rarBoundsCfg[indexNext % config.rarBoundsCfg.Length];
+            }
+        }
+
+        private void obenTBx_KeyDown(object sender, KeyEventArgs e)
+        {
+           // editBounds(e.Control,sender as TextBox, 1000);
         }
     }
 }

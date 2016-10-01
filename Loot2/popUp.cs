@@ -69,8 +69,8 @@ namespace Loot2
             items.Sort(new LootComparer());
 
             //damit auch das Wahrscheinlichste Item ordentlich angezeigt werden kann
-            double maxPercentage = (double)items[items.Count - 1].rarity / (maxValue / 100);
-            dataPieChart.ChartAreas[0].AxisY.Maximum = 1.30 * maxPercentage;
+            double maxPercentage = (double)items.Last().rarity / (maxValue / 100);
+            dataPieChart.ChartAreas[0].AxisY.Maximum = 1.30 * (double.IsInfinity(maxPercentage) ? 130.0 : maxPercentage);
 
             double allPercentage = 0.0;
 
