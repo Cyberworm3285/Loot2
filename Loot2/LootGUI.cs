@@ -325,20 +325,20 @@ namespace Loot2
         {
             if (input)
             {
-                var specs = config.getRaritySpecs(output.Text.ToInt(replacement)-1);
-                int nextIndex;
-                nextIndex = (specs.Item2 + 1) % config.rarBoundsCfg.Length;
-                output.Text = config.rarBoundsCfg[nextIndex.ToPositive()].ToString();
-
-                int zahl = output.Text.ToInt(0);
+                int zahl = output.Text.ToInt(replacement);
                 int indexNext = Array.FindIndex(config.rarBoundsCfg, i => i < zahl);
-               // output.Text = config.rarBoundsCfg[indexNext % config.rarBoundsCfg.Length];
+                output.Text = config.rarBoundsCfg[(indexNext==-1)?0:indexNext % config.rarBoundsCfg.Length].ToString();
             }
         }
 
         private void obenTBx_KeyDown(object sender, KeyEventArgs e)
         {
-           // editBounds(e.Control,sender as TextBox, 1000);
+           editBounds(e.Control,sender as TextBox, 1000);
+        }
+
+        private void untenTBx_KeyDown(object sender, KeyEventArgs e)
+        {
+            editBounds(e.Control, sender as TextBox, 0);
         }
     }
 }
