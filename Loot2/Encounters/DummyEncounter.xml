@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Encounter name="DummyName">
+  <Caption>D</Caption>
+  <enemies>
+    <Enema>
+      <Name>DummyEnemy1</Name>
+      <HP>100</HP>
+      <EW>-</EW>
+      <ES>-</ES>
+    </Enema>
+    <Enema>
+      <Name>DummyEnemy2</Name>
+      <HP>100</HP>
+      <EW>-</EW>
+      <ES>-</ES>
+    </Enema>
+  </enemies>
+</Encounter>

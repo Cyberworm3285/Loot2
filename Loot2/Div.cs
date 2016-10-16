@@ -39,21 +39,7 @@ namespace Loot2
             catch (FileNotFoundException ex)
             {
                 Console.WriteLine(ex.Message);
-                //erstellt die Hardgecodete Standard Datei
-                configFile = new Config
-                {
-                    lowValue = 0,
-                    highvalue = 1000,
-                    autoLoadType = 0,
-                    autoSmoothIterator = -1,
-                    lootAlg = 0,
-                    rarBoundsCfg = new int[] { int.MaxValue, 600, 300, 100, int.MinValue },
-                    rarNamesCfg = new string[] { "Normal", "Verbessert", "Überlegen", "Legendär" },
-                    rarColCfg = new Color[] { Color.LightGray, Color.Green, Color.DarkViolet, Color.DarkGoldenrod },
-                    rarDesriptionCfg = new string[] { "Mega kacke", "Geht so", "Schon ice", "Töfte" },
-                    useAreaCheckBx = true,
-                    useQuestCheckBx = true
-                };
+                configFile = DummyProvider.DUMMY_CONFIG;
                 string xmlString = xml.Serialize(configFile);
                 File.WriteAllText(Path.Combine(pathBase, "config.xml"), xmlString);
             }
@@ -75,6 +61,8 @@ namespace Loot2
     /// </summary>
     public class Config
     {
+        public static string PATH_BASE = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName);
+
         [YAXLib.YAXComment("untere Grenze (Standard 0-1000)")]
         [YAXLib.YAXValueFor("Unten")]
         [YAXLib.YAXAttributeFor("Bounds")]
@@ -107,6 +95,12 @@ namespace Loot2
         ///     standardmäßig ausgewählter Loot Algorithmus (<see cref="LootGUI"/>)
         /// </summary>
         public int lootAlg { get; set; }
+        [YAXLib.YAXAttributeFor("Load")]
+        [YAXLib.YAXComment("Legt fest ob das Kampfsystem benutzt werden soll")]
+        /// <summary>
+        ///     Legt fest ob das Kampfsystem benutzt werden soll
+        /// </summary>
+        public bool useBattleSystem { get; set; }
         [YAXLib.YAXComment("Grenzen der Wahrscheinlickeitsabtrennung (muss gleichviele Elemente haben wie rarNames&rarCol!)")]
         [YAXLib.YAXAttributeFor("Rarity Bounds")]
         [YAXLib.YAXCollection(YAXLib.YAXCollectionSerializationTypes.Serially, SeparateBy = ",")]
@@ -146,6 +140,11 @@ namespace Loot2
         ///      Gibt an, ob eine Checked Listbox mit ausgelesenen Quest-Strings als GUI Element verwendet werden soll
         /// </summary>
         public bool useQuestCheckBx { get; set; }
+        [YAXLib.YAXComment("Sachen fuer Das Kampfsystem")]
+        [YAXLib.YAXAttributeFor("Battle")]
+        public string chanceToHitAttribute { get; set; }
+        [YAXLib.YAXAttributeFor("Battle")]
+        public string chanceToBlockAttribute { get; set; }
 
         /// <summary>
         ///     Gibt den namen und die Farbe der Seltenheit mit dem gegebenen Parameter in einem <see cref="Tuple"/> aus 
@@ -191,6 +190,100 @@ namespace Loot2
             return (string.CompareOrdinal(x.name, y.name));
         }
     }
+
+    public static class DummyProvider
+    {
+        public static Random randomizer = new Random();
+        public static Character DUMMY_CHARACTER = new Character
+        {
+            name = "DummyName",
+            shortCap = "ABCDEFGHIJKLMNOQRSTUVWXYZ"[randomizer.Next(0,26)].ToString(),
+            attributeNames = new string[]
+            {
+                "DummyAttribut1",
+                "DummyAttribut2"
+            },
+            attributeValues = new int[]
+            {
+                1,
+                2
+            }
+        };
+
+        public static Encounter DUMMY_ENCOUNTER = new Encounter
+        {
+            name = "DummyName",
+            shortCap = "D",
+            enemies = new Enema[]
+            {
+                new Enema
+                {
+                    name = "DummyEnemy1",
+                    dealsElementalDamge = "-",
+                    elementalWeakness = "-",
+                    health = 100
+                },
+                new Enema
+                {
+                    name = "DummyEnemy2",
+                    dealsElementalDamge = "-",
+                    elementalWeakness = "-",
+                    health = 100
+                }
+            }
+        };
+
+        public static Loot DUMMY_LOOT = new Loot
+        {
+            areaTags = new List<string>() { "DummyTag1", "DummyTag2" },
+            maxLootable = -1,
+            name = "DummyItem",
+            opCount = 1,
+            questTags = new List<string>() { "DummyTag1", "DummyTag2" },
+            rarity = 1000,
+            tags = "abcdef",
+            type = "DummyType",
+            operationsList = new List<Operation>()
+            {
+                new Operation()
+                {
+                    attribName = new List<string>() { "DummyAttribut1_Name1", "DummyAttribut1_Name2" },
+                    fixedOp = true,
+                    intervall = new Intervall(0,100)
+                },
+                new Operation()
+                {
+                    attribName = new List<string>() { "DummyAttribut2_Name1", "DummyAttribut2_Name2" },
+                    fixedOp = false,
+                    intervall = new Intervall(0,100)
+                },
+                new Operation()
+                {
+                    attribName = new List<string>() { "DummyAttribut3_Name1", "DummyAttribut3_Name2" },
+                    fixedOp = false,
+                    intervall = new Intervall(0,100)
+                }
+            }
+        };
+
+        public static Config DUMMY_CONFIG = new Config
+        {
+            lowValue = 0,
+            highvalue = 1000,
+            autoLoadType = 0,
+            autoSmoothIterator = -1,
+            lootAlg = 0,
+            rarBoundsCfg = new int[] { int.MaxValue, 600, 300, 100, int.MinValue },
+            rarNamesCfg = new string[] { "Normal", "Verbessert", "Überlegen", "Legendär" },
+            rarColCfg = new Color[] { Color.LightGray, Color.Green, Color.DarkViolet, Color.DarkGoldenrod },
+            rarDesriptionCfg = new string[] { "Mega kacke", "Geht so", "Schon ice", "Töfte" },
+            useAreaCheckBx = true,
+            useQuestCheckBx = true,
+            useBattleSystem = false,
+            chanceToBlockAttribute = "GK oder so",
+            chanceToHitAttribute = "GW oder so"
+        };
+    }
 }
 
 namespace ExtensionMethods
@@ -210,8 +303,8 @@ namespace ExtensionMethods
             }
             catch (FormatException)
             {
+                return replacementOnError;
             }
-            return replacementOnError;
         }
 
         public static int ToPositive(this int i)

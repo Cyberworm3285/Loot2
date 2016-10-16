@@ -1,6 +1,6 @@
 <Config>
   <Bounds lowValue="0" highvalue="1000" />
-  <Load autoLoadType="-1" autoSmoothIterator="-1" lootAlg="2" useAreaCheckBx="True" useQuestCheckBx="True" />
+  <Load autoLoadType="-1" autoSmoothIterator="-1" lootAlg="2" useAreaCheckBx="True" useQuestCheckBx="True" useBattleSystem="True"/>
   <Rarity_Bounds rarBoundsCfg="2147483647,600,300,100,-2147483648" />
   <Rarity_Names rarNamesCfg="Normal,Verbessert,Überlegen,Legendär" />
   <!-- Farben der Wahrscheinlickeitsabtrennung (muss gleichviele Elemente haben wie rarNames&rarBounds!) -->
@@ -16,4 +16,5 @@
     <String>Schon ice</String>
     <String>Töfte</String>
   </rarDesriptionCfg>
+  <Battle chanceToHitAttribute="GW oder so" chanceToBlockAttribute="GK oder so" />
 </Config>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Character>
+  <Name>DummyName</Name>
+  <Caption>D</Caption>
+  <attributeNames>
+    <String>DummyAttribut1</String>
+    <String>DummyAttribut2</String>
+  </attributeNames>
+  <attributeValues>
+    <Int32>1</Int32>
+    <Int32>2</Int32>
+  </attributeValues>
+</Character>

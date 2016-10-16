@@ -55,6 +55,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BattleClasses.cs" />
+    <Compile Include="BattleStarGalactica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BattleStarGalactica.Designer.cs">
+      <DependentUpon>BattleStarGalactica.cs</DependentUpon>
+    </Compile>
     <Compile Include="Converter.cs" />
     <Compile Include="Div.cs" />
     <Compile Include="LootGUI.cs">
@@ -75,6 +82,9 @@
     <Compile Include="Operation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="BattleStarGalactica.resx">
+      <DependentUpon>BattleStarGalactica.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LootGUI.resx">
       <DependentUpon>LootGUI.cs</DependentUpon>
     </EmbeddedResource>

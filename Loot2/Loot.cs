@@ -54,28 +54,5 @@ namespace Loot2
             questTags = new List<string>();
             operationsList = new List<Operation>();
         }
-
-        /// <summary>
-        ///     besetzt das Objekt mit standard Werten, erstellt 2 Operationen und gibt den Befehl an diese weiter
-        /// </summary>
-        public void createDummy()
-        {
-            name = "DummyName";
-            type = "DummyType";
-            tags = "DummyTags";
-            questTags.Add("DummyQuest1");
-            questTags.Add("DummyQuest2");
-            areaTags.Add("DummyArea1");
-            areaTags.Add("DummyArea2");
-            maxLootable = -1;
-            rarity = 1000;
-            opCount = 2;
-            operationsList.Add(new Operation());
-            operationsList[0].createDummy(1 , true);
-            operationsList.Add(new Operation());
-            operationsList[1].createDummy(2, false);
-            operationsList.Add(new Operation());
-            operationsList[2].createDummy(3, false);
-        }
     }
 }
