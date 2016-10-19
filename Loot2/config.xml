@@ -1,21 +1,20 @@
 <Config>
   <Bounds lowValue="0" highvalue="1000" />
-  <Load autoLoadType="-1" autoSmoothIterator="-1" lootAlg="2" useAreaCheckBx="True" useQuestCheckBx="True" />
-  <Rarity_Bounds rarBoundsCfg="2147483647,600,300,100,51,-2147483648" />
-  <Rarity_Names rarNamesCfg="Normal,Verbessert,Überlegen,Legendär,Artefakt" />
+  <Load autoLoadType="-1" autoSmoothIterator="-1" lootAlg="2" useAreaCheckBx="True" useQuestCheckBx="True" useBattleSystem="True"/>
+  <Rarity_Bounds rarBoundsCfg="2147483647,600,300,100,-2147483648" />
+  <Rarity_Names rarNamesCfg="Normal,Verbessert,Überlegen,Legendär" />
   <!-- Farben der Wahrscheinlickeitsabtrennung (muss gleichviele Elemente haben wie rarNames&rarBounds!) -->
   <rarColCfg>
 	  <Color>DarkSlateGray</Color>
     <Color>Green</Color>
     <Color>DarkViolet</Color>
     <Color>DarkGoldenrod</Color>
-	  <Color>Red</Color>
   </rarColCfg>
   <rarDesriptionCfg>
     <String>Mega kacke</String>
     <String>Geht so</String>
     <String>Schon ice</String>
     <String>Töfte</String>
-    <String>Meeega krass</String>
   </rarDesriptionCfg>
+  <Battle chanceToHitAttribute="GW oder so" chanceToBlockAttribute="GK oder so" />
 </Config>

@@ -87,6 +87,10 @@ namespace Loot2
         /// </summary>
         private popUpDia Charto;
         /// <summary>
+        ///     BattleStarGalactica ist die Owner- Form des Kampsystems
+        /// </summary>
+        private BattleStarGalactica battleMaster;
+        /// <summary>
         ///     Status der Form um sie ggf. zu aktivieren
         /// </summary>
         private bool isChartoShown = false;
@@ -107,6 +111,12 @@ namespace Loot2
             areaTags = aTags;
             questTags = qTags;
             Charto = new popUpDia(cfg);
+
+            if (cfg.useBattleSystem)
+            {
+                battleMaster = new BattleStarGalactica();
+                battleMaster.Show();
+            }
 
             config = cfg;
             initializeLootAlgs();

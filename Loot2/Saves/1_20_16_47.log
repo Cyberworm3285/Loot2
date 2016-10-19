@@ -1,0 +1,28 @@
+<-------------------------------------------------Traversierung------------------------------------------------->
+00: Gefechtsruestung [Leichte Ruestung]  || Schadensreduktion(2) Tags: leer
+01: Ganzkoerperkondom [Leichte Ruestung]  || Reflect Dmg(3) Tags: leer
+02: Kapmfpanzer [Mittlere Ruestung]  || Schadensreduktion(4) Tags: leer
+03: Nokia-Ruestung [Mittlere Ruestung]  || Reflect Dmg(2) Tags: leer
+04: V. Kampfpanzer [Schwere Ruestung]  || Schadensreduktion(4) Tags: leer
+05: Papp-E.O.D.-Anzug [Schwere Ruestung]  || Reflect Dmg(3) Tags: leer
+06: Dolch [Einhandwaffe]  || Schaden(2) Tags: leer
+07: Schwert [Einhandwaffe]  || Schaden(3) Tags: leer
+08: Katana [Einhandwaffe]  || Schaden(4) Tags: leer
+09: Der Bimbo Schlaechter [Einhandwaffe]  || Schaden(6) || GK(1) Tags: leer
+10: Vierkantholz [Zweihandwaffe]  || Schaden(2) Tags: leer
+11: Morgenstern [Zweihandwaffe]  || Schaden(3) Tags: leer
+12: Nodachi [Zweihandwaffe]  || Schaden(4) Tags: leer
+13: Der Arschblaser [Zweihandwaffe]  || Schaden(7) || KK(1) Tags: leer
+14: Flinte [Gewehr]  || Schaden(1) Tags: leer
+15: PDW [Gewehr]  || Schaden(2) Tags: leer
+16: Sturmgewehr [Gewehr]  || Schaden(6) Tags: leer
+17: Das Raeucherstaebchen [Gewehr]  || Schaden(6) || CH(1) Tags: leer
+18: Jagdgewehr [Sniper]  || Schaden(1) Tags: leer
+19: Praezisionsgewehr [Sniper]  || Schaden(2) Tags: leer
+20: Kal. 50 [Sniper]  || Schaden(6) Tags: leer
+21: Der Penetrator [Sniper]  || Schaden(7) || GK(1) Tags: leer
+22: Medipack [Medizin]  || Heal(10) Tags: leer
+23: Ueberlebenspack [Medizin]  || Heal(20) Tags: leer
+24: Furz-Spray [Medizin]  Tags: leer
+<------------------------------------------------/Traversierung------------------------------------------------->
+Dolch [Einhandwaffe]  || Schaden(2)

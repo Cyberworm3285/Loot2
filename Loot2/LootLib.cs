@@ -42,8 +42,7 @@ namespace Loot2
         public void createDummy()
         {
             lootList.Clear();
-            lootList.Add(new Loot());
-            lootList[0].createDummy();
+            lootList.Add(DummyProvider.DUMMY_LOOT);
         }
 
         /// <summary>

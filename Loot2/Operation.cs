@@ -22,18 +22,6 @@ namespace Loot2
         {
             attribName = new List<string>();
         }
-
-        /// <summary>
-        ///     befüllt das Objekt mit standard Werten
-        ///     <para>(Ende des Baum-Aufrugfs)</para>
-        /// </summary>
-        public void createDummy(int number, bool isFixed)
-        {
-            intervall = new Intervall(0, 1);
-            attribName.Add("DummyAttribut" + number + "_1");
-            attribName.Add("DummyAttribut" + number + "_2");
-            fixedOp = isFixed;
-        }
     }
 
     public struct Intervall
