@@ -124,6 +124,12 @@ namespace Loot2
             rarityOutput.Click += rarButtonClick;
         }
 
+        public void newBattlesystem()
+        {
+            battleMaster = new BattleStarGalactica();
+            battleMaster.Show();
+        }
+
         /// <summary>
         ///     Baumverfahren zur Dummy-Erstellung (Befehl wird bis ganz nach unten weitergereicht)
         /// </summary>

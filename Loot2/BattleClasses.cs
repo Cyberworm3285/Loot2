@@ -6,14 +6,28 @@ using System.Threading.Tasks;
 
 namespace Loot2
 {
-    public class Character
+    public abstract class Entity
     {
         [YAXLib.YAXAttributeFor("Name")]
         [YAXLib.YAXValueFor("Name")]
         public string name { get; set; }
-        [YAXLib.YAXAttributeFor("Caption")]
-        [YAXLib.YAXValueFor("Caption")]
-        public string shortCap { get; set; }
+        [YAXLib.YAXAttributeFor("DmgIntervall")]
+        public int low { get; set; }
+        [YAXLib.YAXAttributeFor("DmgIntervall")]
+        public int high { get; set; }
+        [YAXLib.YAXAttributeFor("Leben")]
+        public int physHealth { get; set; }
+        [YAXLib.YAXAttributeFor("Leben")]
+        public bool dead { get; set; }
+        [YAXLib.YAXAttributeFor("Elemental")]
+        public string elemtalType { get; set; }
+        [YAXLib.YAXAttributeFor("Elemental")]
+        public string weakAgainst { get; set; }
+    }
+
+    [Serializable]
+    public class Character : Entity
+    {
         [YAXLib.YAXAttributeFor("AttributNamen")]
         [YAXLib.YAXValueFor("AttributNamen")]
         [YAXLib.YAXCollection(YAXLib.YAXCollectionSerializationTypes.Recursive)]
@@ -22,8 +36,24 @@ namespace Loot2
         [YAXLib.YAXValueFor("AttributWerte")]
         [YAXLib.YAXCollection(YAXLib.YAXCollectionSerializationTypes.Recursive)]
         public int[] attributeValues { get; set; }
+        [YAXLib.YAXAttributeFor("Leben")]
+        public int mentalHealth { get; set; }
+        [YAXLib.YAXAttributeFor("Caption")]
+        [YAXLib.YAXValueFor("Caption")]
+        public string shortCap { get; set; }
+
+        public override string ToString()
+        {
+            string result = "Name: " + name + "\n-PH: " + physHealth + "\n-MH: " + mentalHealth + "\n-Dmg: [" + low + ";" + high + "]" + "\n-ET: " + elemtalType + "\n-EW: " + weakAgainst;
+            for (int i = 0; i < attributeNames.Length; i++)
+            {
+                result+=("\n" + attributeNames[i] + ": " + attributeValues[i]);
+            }
+            return result;
+        }
     }
 
+    [Serializable]
     public class Encounter
     {
         [YAXLib.YAXAttributeForClass]
@@ -34,21 +64,26 @@ namespace Loot2
         [YAXLib.YAXValueFor("Enemies")]
         [YAXLib.YAXCollection(YAXLib.YAXCollectionSerializationTypes.Recursive)]
         public Enema[] enemies { get; set; }
+
+        public override string ToString()
+        {
+            string result = "Name: " + name;
+            foreach (Enema en in enemies)
+            {
+                result += "\n"+en.ToString();
+            }
+            return result;
+        }
     }
 
-    public class Enema
+    [Serializable]
+    public class Enema : Entity
     {
-        [YAXLib.YAXAttributeFor("Name")]
-        [YAXLib.YAXValueFor("Name")]
-        public string name { get; set; }
-        [YAXLib.YAXAttributeFor("HP")]
-        [YAXLib.YAXValueFor("HP")]
-        public int health { get; set; }
-        [YAXLib.YAXAttributeFor("EW")]
-        [YAXLib.YAXValueFor("EW")]
-        public string elementalWeakness { get; set; }
-        [YAXLib.YAXAttributeFor("ES")]
-        [YAXLib.YAXValueFor("ES")]
-        public string dealsElementalDamge { get; set; }
+        public override string ToString()
+        {
+            string result = (dead) ? "-Name: " + name + "\n[DEAD]"
+                                   : "-Name: " + name + "\n--HP: " + physHealth + "\n--Dmg: [" + low + "; " + high + "]" + "\n--EW: " + weakAgainst + "\n--ED: " + elemtalType;
+            return result;
+        }
     }
 }

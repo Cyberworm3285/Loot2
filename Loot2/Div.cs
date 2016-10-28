@@ -197,7 +197,14 @@ namespace Loot2
         public static Character DUMMY_CHARACTER = new Character
         {
             name = "DummyName",
-            shortCap = "ABCDEFGHIJKLMNOQRSTUVWXYZ"[randomizer.Next(0,26)].ToString(),
+            shortCap = "D",
+            mentalHealth = 100,
+            physHealth = 100,
+            dead = false,
+            high = 100,
+            low = 0,
+            elemtalType = "-",
+            weakAgainst = "-",
             attributeNames = new string[]
             {
                 "DummyAttribut1",
@@ -219,21 +226,27 @@ namespace Loot2
                 new Enema
                 {
                     name = "DummyEnemy1",
-                    dealsElementalDamge = "-",
-                    elementalWeakness = "-",
-                    health = 100
+                    elemtalType = "-",
+                    weakAgainst = "-",
+                    physHealth = 100,
+                    dead = false,
+                    high  = 100,
+                    low = 0
                 },
                 new Enema
                 {
                     name = "DummyEnemy2",
-                    dealsElementalDamge = "-",
-                    elementalWeakness = "-",
-                    health = 100
+                    elemtalType = "-",
+                    weakAgainst = "-",
+                    physHealth = 100,
+                    dead = false,
+                    high  = 100,
+                    low = 0
                 }
             }
         };
 
-        public static Loot DUMMY_LOOT = new Loot
+        public static Loot      DUMMY_LOOT      = new Loot
         {
             areaTags = new List<string>() { "DummyTag1", "DummyTag2" },
             maxLootable = -1,
@@ -266,7 +279,7 @@ namespace Loot2
             }
         };
 
-        public static Config DUMMY_CONFIG = new Config
+        public static Config    DUMMY_CONFIG    = new Config
         {
             lowValue = 0,
             highvalue = 1000,
@@ -310,6 +323,18 @@ namespace ExtensionMethods
         public static int ToPositive(this int i)
         {
             return (i < 0) ? -1 * i : i;
+        }
+
+        public static int CoolModulo(this int i, int length)
+        {
+            if (i < 0)
+            {
+                return length - i.ToPositive() % length;
+            }
+            else
+            {
+                return i % length;
+            }
         }
     }
 }

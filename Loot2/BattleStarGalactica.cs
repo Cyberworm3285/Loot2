@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using YAXLib;
+using ExtensionMethods;
 
 namespace Loot2
 {
@@ -16,8 +17,9 @@ namespace Loot2
     {
         private List<Character> chars = new List<Character>();
         private List<Encounter> encounters = new List<Encounter>();
-        private int charIndex = 0;
-        private int encIndex = 0;
+        int enCounter, charCounter, enemyCounter;
+        Random rand = new Random();
+        private int logCounter = 0;
 
         public BattleStarGalactica()
         {
@@ -51,47 +53,42 @@ namespace Loot2
             {
                 encounters.Add(serializer.DeserializeFromFile(s) as Encounter);
             }
-            updateTabs();
+            updateTabs(0, 0, 0);
         }
 
-        private void updateTabs()
+        private void updateTabs(int ch, int en, int enem)
         {
             charTabCtrl.TabPages.Clear();
             encTabCtrl.TabPages.Clear();
             foreach (Character c in chars)
             {
                 TabPage temp = new TabPage(c.shortCap);
-                ListBox lBox = new ListBox();
-                lBox.Name = c.name + "_ListBox";
-                lBox.Location = new Point(0, 0);
-                lBox.Size = new Size(encTabCtrl.Width - 10, encTabCtrl.Height - 20);
-                lBox.Items.Add("Name: " + c.name);
+                Label lb = new Label();
+                lb.Name = c.name + "_Label";
+                lb.Location = new Point(0, 0);
+                lb.Size = new Size(encTabCtrl.Width - 10, encTabCtrl.Height - 20);
                 if (c.attributeNames.Length != c.attributeValues.Length) throw new Exception("Uneven attribute-lenghts");
-                for (int i = 0; i < c.attributeNames.Length; i++)
-                {
-                    lBox.Items.Add(c.attributeNames[i] + ": " + c.attributeValues[i]);
-                }
-                temp.Controls.Add(lBox);
+                lb.Text = c.ToString();
+                temp.Controls.Add(lb);
                 charTabCtrl.TabPages.Add(temp);
             }
             foreach (Encounter enc in encounters)
             {
                 TabPage temp = new TabPage(enc.shortCap);
-                ListBox lBox = new ListBox();
-                lBox.Name = enc.name + "_ListBox";
-                lBox.Location = new Point(0, 0);
-                lBox.Size = new Size(encTabCtrl.Width - 10, encTabCtrl.Height - 20);
-                lBox.Items.Add("Name: " + enc.name);
-                foreach (Enema en in enc.enemies)
-                {
-                    lBox.Items.Add("-Name: " + en.name);
-                    lBox.Items.Add("--HP: " + en.health);
-                    lBox.Items.Add("--EW: " + en.elementalWeakness);
-                    lBox.Items.Add("--ED: " + en.dealsElementalDamge);
-                }
-                temp.Controls.Add(lBox);
+                Label lb = new Label();
+                lb.Name = enc.name + "_Label";
+                lb.Location = new Point(0, 0);
+                lb.Size = new Size(encTabCtrl.Width - 10, encTabCtrl.Height - 20);
+                lb.Text = enc.ToString();
+                temp.Controls.Add(lb);
                 encTabCtrl.TabPages.Add(temp);
             }
+            if (chars.Count == 0 || encounters.Count == 0) return; 
+            charTabCtrl.SelectedIndex = ch;
+            encTabCtrl.SelectedIndex = en;
+            charSearchTxt.Text = chars[ch].name;
+            encTxt.Text = encounters[en].name;
+            enSearchTxt.Text = encounters[en].enemies[enem].name;
         }
 
         private void createDummys(bool noChars, bool noEncounters)
@@ -112,49 +109,132 @@ namespace Loot2
         private void charBtnRight_Click(object sender, EventArgs e)
         {
             charTabCtrl.SelectedIndex = ++charTabCtrl.SelectedIndex % charTabCtrl.TabCount;
+            charCounter++;
         }
 
         private void charBtnLeft_Click(object sender, EventArgs e)
         {
-            charTabCtrl.SelectedIndex = --charTabCtrl.SelectedIndex % charTabCtrl.TabCount;
+            int c = charTabCtrl.SelectedIndex - 1;
+            charTabCtrl.SelectedIndex = (c < 0) ? charTabCtrl.TabCount - 1 : c;
+            enCounter--;
         }
 
         private void encBtnRight_Click(object sender, EventArgs e)
         {
-            encTabCtrl.SelectedIndex = ++encTabCtrl.SelectedIndex % encTabCtrl.TabCount;
+            switchEncTab(1);
         }
 
         private void encBtnLeft_Click(object sender, EventArgs e)
         {
-            encTabCtrl.SelectedIndex = --encTabCtrl.SelectedIndex % encTabCtrl.TabCount;
+            switchEncTab(-1);
         }
 
         private void updateTextFields(object sender, EventArgs e)
         {
-            charTxt.Text = chars[charTabCtrl.SelectedIndex].name;
+            charSearchTxt.Text = chars[charTabCtrl.SelectedIndex].name;
             encTxt.Text = encounters[encTabCtrl.SelectedIndex].name;
         }
 
         private void charSearch_Click(object sender, EventArgs e)
         {
-            SearchTabWithText(charTabCtrl, charTxt.Text);
+            for (int i = 0; i < chars.Count; i++)
+            {
+                if (chars[i].name.Contains(charSearchTxt.Text))
+                {
+                    charCounter = i;
+                    charSearchTxt.Text = chars[i].name;
+                }
+            }
         }
 
         private void encSearch_Click(object sender, EventArgs e)
         {
-            SearchTabWithText(encTabCtrl, charTxt.Text);
-        }
-
-        private void SearchTabWithText(TabControl ctrl, string value)
-        {
-            for (int i = 0; i < charTabCtrl.TabCount; i++)
+            for (int i = 0; i < encounters.Count; i++)
             {
-                if (charTabCtrl.TabPages[i].Text.Contains(charTxt.Text))
+                if (encounters[i].name.Contains(encSearch.Text))
                 {
-                    charTabCtrl.SelectTab(i);
-                    return;
+                    enCounter = i;
+                    encTxt.Text = encounters[i].name;
                 }
             }
+        }
+
+        private void charTxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control)
+            {
+                charSearch_Click(sender, e);
+            }
+        }
+
+        private void enBtnLeft_Click(object sender, EventArgs e)
+        {
+            enemyCounter--;
+            enSearchTxt.Text = encounters[enCounter].enemies[enemyCounter.CoolModulo(encounters[enCounter].enemies.Length)].name;
+        }
+
+        private void enBtnRight_Click(object sender, EventArgs e)
+        {
+            enemyCounter++;
+            int temp = enemyCounter.CoolModulo(encounters[enCounter].enemies.Length);
+            enSearchTxt.Text = encounters[enCounter].enemies[temp].name;
+        }
+
+        private void attackCharToNPC_Click(object sender, EventArgs e)
+        {
+            if (encounters[enCounter].enemies[enemyCounter].dead)
+            {
+                log("[" + logCounter++.ToString() + "] Enemy is dead!");
+            }
+            encounters[enCounter].enemies[enemyCounter].dead = attack(chars[charCounter], encounters[enCounter].enemies[enemyCounter]);
+            updateTabs(charCounter, enCounter, enemyCounter);
+        }
+
+        private void enBtnSearch_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < encounters[enCounter].enemies.Length; i++)
+            {
+                if (encounters[enCounter].enemies[i].name.Contains(enSearchTxt.Text))
+                {
+                    enemyCounter = i;
+                    enSearchTxt.Text = encounters[enCounter].enemies[i].name;
+                }
+            }
+        }
+
+        private void switchEncTab(int modifier)
+        {
+            if (modifier < 0)
+            {
+                encTabCtrl.SelectedIndex = (encTabCtrl.SelectedIndex + modifier < 0) ? encTabCtrl.TabCount - 1 : encTabCtrl.SelectedIndex + modifier;
+            }
+            else
+            {
+                encTabCtrl.SelectedIndex = (encTabCtrl.SelectedIndex + modifier) % encTabCtrl.TabCount;
+            }
+            encSearch.Text = encounters[encTabCtrl.SelectedIndex].enemies.First().name;
+            enCounter += modifier;
+            enCounter = enCounter.CoolModulo(encTabCtrl.TabCount);
+        }
+
+        private void encTabCtrl_TabIndexChanged(object sender, EventArgs e)
+        {
+            enCounter = encTabCtrl.TabIndex;
+        }
+
+        private bool attack(Entity en1, Entity en2)
+        {
+            en2.physHealth -= rand.Next(en1.low, en2.high);
+            return (en2.physHealth <= 0);
+        }
+
+        private void log(string str)
+        {
+            if (logOutputTxtBx.Items.Count > 3)
+            {
+                logOutputTxtBx.Items.RemoveAt(0);
+            }
+            logOutputTxtBx.Items.Add(str);
         }
     }
 }

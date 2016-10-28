@@ -29,27 +29,25 @@
         private void InitializeComponent()
         {
             this.charTabCtrl = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.encTabCtrl = new System.Windows.Forms.TabControl();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.charBtnRight = new System.Windows.Forms.Button();
             this.charBtnLeft = new System.Windows.Forms.Button();
             this.encBtnRight = new System.Windows.Forms.Button();
             this.encBtnLeft = new System.Windows.Forms.Button();
-            this.charTxt = new System.Windows.Forms.TextBox();
+            this.charSearchTxt = new System.Windows.Forms.TextBox();
             this.encTxt = new System.Windows.Forms.TextBox();
             this.charSearch = new System.Windows.Forms.Button();
             this.encSearch = new System.Windows.Forms.Button();
-            this.charTabCtrl.SuspendLayout();
-            this.encTabCtrl.SuspendLayout();
+            this.enBtnSearch = new System.Windows.Forms.Button();
+            this.enSearchTxt = new System.Windows.Forms.TextBox();
+            this.enBtnLeft = new System.Windows.Forms.Button();
+            this.enBtnRight = new System.Windows.Forms.Button();
+            this.attackCharToNPC = new System.Windows.Forms.Button();
+            this.logOutputTxtBx = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // charTabCtrl
             // 
-            this.charTabCtrl.Controls.Add(this.tabPage1);
-            this.charTabCtrl.Controls.Add(this.tabPage2);
             this.charTabCtrl.Location = new System.Drawing.Point(13, 13);
             this.charTabCtrl.Name = "charTabCtrl";
             this.charTabCtrl.SelectedIndex = 0;
@@ -57,56 +55,15 @@
             this.charTabCtrl.TabIndex = 0;
             this.charTabCtrl.Click += new System.EventHandler(this.updateTextFields);
             // 
-            // tabPage1
-            // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(192, 318);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(192, 318);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
             // encTabCtrl
             // 
-            this.encTabCtrl.Controls.Add(this.tabPage3);
-            this.encTabCtrl.Controls.Add(this.tabPage4);
             this.encTabCtrl.Location = new System.Drawing.Point(528, 13);
             this.encTabCtrl.Name = "encTabCtrl";
             this.encTabCtrl.SelectedIndex = 0;
             this.encTabCtrl.Size = new System.Drawing.Size(200, 344);
             this.encTabCtrl.TabIndex = 1;
+            this.encTabCtrl.TabIndexChanged += new System.EventHandler(this.encTabCtrl_TabIndexChanged);
             this.encTabCtrl.Click += new System.EventHandler(this.updateTextFields);
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(192, 318);
-            this.tabPage3.TabIndex = 0;
-            this.tabPage3.Text = "tabPage3";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(192, 318);
-            this.tabPage4.TabIndex = 1;
-            this.tabPage4.Text = "tabPage4";
-            this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // charBtnRight
             // 
@@ -148,12 +105,13 @@
             this.encBtnLeft.UseVisualStyleBackColor = true;
             this.encBtnLeft.Click += new System.EventHandler(this.encBtnLeft_Click);
             // 
-            // charTxt
+            // charSearchTxt
             // 
-            this.charTxt.Location = new System.Drawing.Point(250, 38);
-            this.charTxt.Name = "charTxt";
-            this.charTxt.Size = new System.Drawing.Size(100, 20);
-            this.charTxt.TabIndex = 6;
+            this.charSearchTxt.Location = new System.Drawing.Point(250, 38);
+            this.charSearchTxt.Name = "charSearchTxt";
+            this.charSearchTxt.Size = new System.Drawing.Size(100, 20);
+            this.charSearchTxt.TabIndex = 6;
+            this.charSearchTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.charTxt_KeyDown);
             // 
             // encTxt
             // 
@@ -182,15 +140,76 @@
             this.encSearch.UseVisualStyleBackColor = true;
             this.encSearch.Click += new System.EventHandler(this.encSearch_Click);
             // 
+            // enBtnSearch
+            // 
+            this.enBtnSearch.Location = new System.Drawing.Point(761, 119);
+            this.enBtnSearch.Name = "enBtnSearch";
+            this.enBtnSearch.Size = new System.Drawing.Size(100, 23);
+            this.enBtnSearch.TabIndex = 13;
+            this.enBtnSearch.Text = "Search";
+            this.enBtnSearch.UseVisualStyleBackColor = true;
+            this.enBtnSearch.Click += new System.EventHandler(this.enBtnSearch_Click);
+            // 
+            // enSearchTxt
+            // 
+            this.enSearchTxt.Location = new System.Drawing.Point(761, 93);
+            this.enSearchTxt.Name = "enSearchTxt";
+            this.enSearchTxt.Size = new System.Drawing.Size(100, 20);
+            this.enSearchTxt.TabIndex = 12;
+            // 
+            // enBtnLeft
+            // 
+            this.enBtnLeft.Location = new System.Drawing.Point(730, 90);
+            this.enBtnLeft.Name = "enBtnLeft";
+            this.enBtnLeft.Size = new System.Drawing.Size(25, 25);
+            this.enBtnLeft.TabIndex = 11;
+            this.enBtnLeft.Text = "<";
+            this.enBtnLeft.UseVisualStyleBackColor = true;
+            this.enBtnLeft.Click += new System.EventHandler(this.enBtnLeft_Click);
+            // 
+            // enBtnRight
+            // 
+            this.enBtnRight.Location = new System.Drawing.Point(867, 90);
+            this.enBtnRight.Name = "enBtnRight";
+            this.enBtnRight.Size = new System.Drawing.Size(25, 25);
+            this.enBtnRight.TabIndex = 10;
+            this.enBtnRight.Text = ">";
+            this.enBtnRight.UseVisualStyleBackColor = true;
+            this.enBtnRight.Click += new System.EventHandler(this.enBtnRight_Click);
+            // 
+            // attackCharToNPC
+            // 
+            this.attackCharToNPC.Location = new System.Drawing.Point(404, 35);
+            this.attackCharToNPC.Name = "attackCharToNPC";
+            this.attackCharToNPC.Size = new System.Drawing.Size(75, 23);
+            this.attackCharToNPC.TabIndex = 14;
+            this.attackCharToNPC.Text = "Attack ->";
+            this.attackCharToNPC.UseVisualStyleBackColor = true;
+            this.attackCharToNPC.Click += new System.EventHandler(this.attackCharToNPC_Click);
+            // 
+            // logOutputTxtBx
+            // 
+            this.logOutputTxtBx.FormattingEnabled = true;
+            this.logOutputTxtBx.Location = new System.Drawing.Point(730, 165);
+            this.logOutputTxtBx.Name = "logOutputTxtBx";
+            this.logOutputTxtBx.Size = new System.Drawing.Size(162, 95);
+            this.logOutputTxtBx.TabIndex = 15;
+            // 
             // BattleStarGalactica
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(995, 369);
+            this.Controls.Add(this.logOutputTxtBx);
+            this.Controls.Add(this.attackCharToNPC);
+            this.Controls.Add(this.enBtnSearch);
+            this.Controls.Add(this.enSearchTxt);
+            this.Controls.Add(this.enBtnLeft);
+            this.Controls.Add(this.enBtnRight);
             this.Controls.Add(this.encSearch);
             this.Controls.Add(this.charSearch);
             this.Controls.Add(this.encTxt);
-            this.Controls.Add(this.charTxt);
+            this.Controls.Add(this.charSearchTxt);
             this.Controls.Add(this.encBtnLeft);
             this.Controls.Add(this.encBtnRight);
             this.Controls.Add(this.charBtnLeft);
@@ -200,8 +219,6 @@
             this.Name = "BattleStarGalactica";
             this.Text = "BattleStarGalactica";
             this.Load += new System.EventHandler(this.BattleStarGalactica_Load);
-            this.charTabCtrl.ResumeLayout(false);
-            this.encTabCtrl.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -210,18 +227,20 @@
         #endregion
 
         private System.Windows.Forms.TabControl charTabCtrl;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabControl encTabCtrl;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Button charBtnRight;
         private System.Windows.Forms.Button charBtnLeft;
         private System.Windows.Forms.Button encBtnRight;
         private System.Windows.Forms.Button encBtnLeft;
-        private System.Windows.Forms.TextBox charTxt;
+        private System.Windows.Forms.TextBox charSearchTxt;
         private System.Windows.Forms.TextBox encTxt;
         private System.Windows.Forms.Button charSearch;
         private System.Windows.Forms.Button encSearch;
+        private System.Windows.Forms.Button enBtnSearch;
+        private System.Windows.Forms.TextBox enSearchTxt;
+        private System.Windows.Forms.Button enBtnLeft;
+        private System.Windows.Forms.Button enBtnRight;
+        private System.Windows.Forms.Button attackCharToNPC;
+        private System.Windows.Forms.ListBox logOutputTxtBx;
     }
 }

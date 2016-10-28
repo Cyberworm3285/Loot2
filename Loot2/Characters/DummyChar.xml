@@ -1,7 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Character>
-  <Name>DummyName</Name>
-  <Caption>D</Caption>
   <attributeNames>
     <String>DummyAttribut1</String>
     <String>DummyAttribut2</String>
@@ -10,4 +8,9 @@
     <Int32>1</Int32>
     <Int32>2</Int32>
   </attributeValues>
+  <Leben mentalHealth="100" physHealth="100" dead="False" />
+  <Caption>D</Caption>
+  <Name>DummyName</Name>
+  <DmgIntervall low="0" high="100" />
+  <Elemental elemtalType="-" weakAgainst="-" />
 </Character>

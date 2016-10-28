@@ -340,5 +340,10 @@ namespace Loot2
         {
             editBounds(e.Control, sender as TextBox, 0);
         }
+
+        private void battleSysBtn_Click(object sender, EventArgs e)
+        {
+            looter.newBattlesystem();
+        }
     }
 }
