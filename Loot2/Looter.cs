@@ -12,7 +12,7 @@ namespace Loot2
     /// <summary>
     ///     Klasse mit Daten und Logik
     /// </summary>
-    class Looter
+    public class Looter
     {
         /// <summary>
         ///     Speicher Der Loot-Rohdaten
@@ -114,7 +114,7 @@ namespace Loot2
 
             if (cfg.useBattleSystem)
             {
-                battleMaster = new BattleStarGalactica();
+                battleMaster = new BattleStarGalactica(config, this);
                 battleMaster.Show();
             }
 
@@ -126,7 +126,7 @@ namespace Loot2
 
         public void newBattlesystem()
         {
-            battleMaster = new BattleStarGalactica();
+            battleMaster = new BattleStarGalactica(config, this);
             battleMaster.Show();
         }
 

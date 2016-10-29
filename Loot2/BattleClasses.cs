@@ -23,6 +23,10 @@ namespace Loot2
         public string elemtalType { get; set; }
         [YAXLib.YAXAttributeFor("Elemental")]
         public string weakAgainst { get; set; }
+
+        public abstract bool counterSuccess();
+        public abstract bool hitSuccess();
+        public abstract void die(Action<string> logFunction);
     }
 
     [Serializable]
@@ -41,15 +45,45 @@ namespace Loot2
         [YAXLib.YAXAttributeFor("Caption")]
         [YAXLib.YAXValueFor("Caption")]
         public string shortCap { get; set; }
+        [YAXLib.YAXAttributeFor("CounterAttribKey")]
+        [YAXLib.YAXValueFor("CounterAttribKey")]
+        public string counterAttribKey { get; set; }
+        [YAXLib.YAXAttributeFor("HitChanceAttribKey")]
+        [YAXLib.YAXValueFor("HitChanceAttribKey")]
+        public string hitChanceAttribKey { get; set; }
 
         public override string ToString()
         {
-            string result = "Name: " + name + "\n-PH: " + physHealth + "\n-MH: " + mentalHealth + "\n-Dmg: [" + low + ";" + high + "]" + "\n-ET: " + elemtalType + "\n-EW: " + weakAgainst;
-            for (int i = 0; i < attributeNames.Length; i++)
+            if (dead) return "Name: " + name + "\n[DEAD]";
+            else
             {
-                result+=("\n" + attributeNames[i] + ": " + attributeValues[i]);
+                string result = "Name: " + name + "\n-PH: " + physHealth + "\n-MH: " + mentalHealth + "\n-Dmg: [" + low + ";" + high + "]" + "\n-ET: " + elemtalType + "\n-EW: " + weakAgainst;
+                for (int i = 0; i < attributeNames.Length; i++)
+                {
+                    result += ("\n" + attributeNames[i] + ": " + attributeValues[i]);
+                }
+                return result;
             }
-            return result;
+        }
+
+        public override bool counterSuccess()
+        {
+            int index = Array.IndexOf(attributeNames, this.counterAttribKey);
+            if (index == -1) throw new Exception("CounterAttributeKey is invalid");
+            return DummyProvider.randomizer.Next(1, DummyProvider.getConfig.diceCap) <= attributeValues[index];
+        }
+
+        public override bool hitSuccess()
+        {
+            int index = Array.IndexOf(attributeNames, this.hitChanceAttribKey);
+            if (index == -1) throw new Exception("HitChanceAttributeKey is invalid");
+            return DummyProvider.randomizer.Next(1, DummyProvider.getConfig.diceCap) <= attributeValues[index];
+        }
+
+        public override void die(Action<string> logFunction)
+        {
+            logFunction("Character has died: " + name);
+            dead = true;
         }
     }
 
@@ -79,11 +113,34 @@ namespace Loot2
     [Serializable]
     public class Enema : Entity
     {
+        [YAXLib.YAXAttributeFor("Defense")]
+        [YAXLib.YAXValueFor("Defense")]
+        public int counterProb { get; set; }
+        [YAXLib.YAXAttributeFor("Offense")]
+        [YAXLib.YAXValueFor("Offense")]
+        public int hitChance { get; set; }
+
         public override string ToString()
         {
             string result = (dead) ? "-Name: " + name + "\n[DEAD]"
                                    : "-Name: " + name + "\n--HP: " + physHealth + "\n--Dmg: [" + low + "; " + high + "]" + "\n--EW: " + weakAgainst + "\n--ED: " + elemtalType;
             return result;
+        }
+
+        public override bool counterSuccess()
+        {
+            return DummyProvider.randomizer.Next(1, 100) <= this.counterProb;
+        }
+
+        public override bool hitSuccess()
+        {
+            return DummyProvider.randomizer.Next(1, 100) <= this.hitChance;
+        }
+
+        public override void die(Action<string> logFunction)
+        {
+            logFunction("Enemy has died: " + name);
+            dead = true;
         }
     }
 }

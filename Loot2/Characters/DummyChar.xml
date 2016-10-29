@@ -5,11 +5,13 @@
     <String>DummyAttribut2</String>
   </attributeNames>
   <attributeValues>
-    <Int32>1</Int32>
-    <Int32>2</Int32>
+    <Int32>15</Int32>
+    <Int32>12</Int32>
   </attributeValues>
   <Leben mentalHealth="100" physHealth="100" dead="False" />
   <Caption>D</Caption>
+  <CounterAttribKey>DummyAttribut1</CounterAttribKey>
+  <HitChanceAttribKey>DummyAttribut2</HitChanceAttribKey>
   <Name>DummyName</Name>
   <DmgIntervall low="0" high="100" />
   <Elemental elemtalType="-" weakAgainst="-" />

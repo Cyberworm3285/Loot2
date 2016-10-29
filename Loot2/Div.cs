@@ -35,6 +35,7 @@ namespace Loot2
             {
                 string xmlString = File.ReadAllText(Path.Combine(pathBase, "config.xml"));
                 configFile = (Config)xml.Deserialize(xmlString);
+                DummyProvider.LOADED_CONFIG = configFile;
             }
             catch (FileNotFoundException ex)
             {
@@ -142,9 +143,9 @@ namespace Loot2
         public bool useQuestCheckBx { get; set; }
         [YAXLib.YAXComment("Sachen fuer Das Kampfsystem")]
         [YAXLib.YAXAttributeFor("Battle")]
-        public string chanceToHitAttribute { get; set; }
+        public int diceCap { get; set; }
         [YAXLib.YAXAttributeFor("Battle")]
-        public string chanceToBlockAttribute { get; set; }
+        public bool allowCounterAttack { get; set; }
 
         /// <summary>
         ///     Gibt den namen und die Farbe der Seltenheit mit dem gegebenen Parameter in einem <see cref="Tuple"/> aus 
@@ -205,6 +206,8 @@ namespace Loot2
             low = 0,
             elemtalType = "-",
             weakAgainst = "-",
+            counterAttribKey = "DummyAttribut1",
+            hitChanceAttribKey = "DummyAttribut2",
             attributeNames = new string[]
             {
                 "DummyAttribut1",
@@ -212,8 +215,8 @@ namespace Loot2
             },
             attributeValues = new int[]
             {
-                1,
-                2
+                15,
+                12
             }
         };
 
@@ -231,7 +234,9 @@ namespace Loot2
                     physHealth = 100,
                     dead = false,
                     high  = 100,
-                    low = 0
+                    low = 0,
+                    counterProb = 15,
+                    hitChance = 80
                 },
                 new Enema
                 {
@@ -241,7 +246,9 @@ namespace Loot2
                     physHealth = 100,
                     dead = false,
                     high  = 100,
-                    low = 0
+                    low = 0,
+                    counterProb = 15,
+                    hitChance = 80
                 }
             }
         };
@@ -279,7 +286,7 @@ namespace Loot2
             }
         };
 
-        public static Config    DUMMY_CONFIG    = new Config
+        public static Config DUMMY_CONFIG = new Config
         {
             lowValue = 0,
             highvalue = 1000,
@@ -293,9 +300,13 @@ namespace Loot2
             useAreaCheckBx = true,
             useQuestCheckBx = true,
             useBattleSystem = false,
-            chanceToBlockAttribute = "GK oder so",
-            chanceToHitAttribute = "GW oder so"
+            allowCounterAttack = true,
+            diceCap = 20,
         };
+
+        public static Config LOADED_CONFIG = null;
+
+        public static Config getConfig { get { return LOADED_CONFIG ?? DUMMY_CONFIG; } }
     }
 }
 

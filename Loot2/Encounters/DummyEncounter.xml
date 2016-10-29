@@ -3,12 +3,16 @@
   <Caption>D</Caption>
   <enemies>
     <Enema>
+      <Defense>15</Defense>
+      <Offense>80</Offense>
       <Name>DummyEnemy1</Name>
       <DmgIntervall low="0" high="100" />
       <Leben physHealth="100" dead="False" />
       <Elemental elemtalType="-" weakAgainst="-" />
     </Enema>
     <Enema>
+      <Defense>15</Defense>
+      <Offense>80</Offense>
       <Name>DummyEnemy2</Name>
       <DmgIntervall low="0" high="100" />
       <Leben physHealth="100" dead="False" />

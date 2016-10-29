@@ -20,10 +20,14 @@ namespace Loot2
         int enCounter, charCounter, enemyCounter;
         Random rand = new Random();
         private int logCounter = 0;
+        private Config cfg;
+        private Looter looter;
 
-        public BattleStarGalactica()
+        public BattleStarGalactica(Config c, Looter l)
         {
             InitializeComponent();
+            cfg = c;
+            looter = l;
         }
 
         private void BattleStarGalactica_Load(object sender, EventArgs e)
@@ -182,11 +186,7 @@ namespace Loot2
 
         private void attackCharToNPC_Click(object sender, EventArgs e)
         {
-            if (encounters[enCounter].enemies[enemyCounter].dead)
-            {
-                log("[" + logCounter++.ToString() + "] Enemy is dead!");
-            }
-            encounters[enCounter].enemies[enemyCounter].dead = attack(chars[charCounter], encounters[enCounter].enemies[enemyCounter]);
+            attack(chars[charCounter], encounters[enCounter].enemies[enemyCounter]);
             updateTabs(charCounter, enCounter, enemyCounter);
         }
 
@@ -222,10 +222,28 @@ namespace Loot2
             enCounter = encTabCtrl.TabIndex;
         }
 
-        private bool attack(Entity en1, Entity en2)
+        private void attack(Entity en1, Entity en2)
         {
-            en2.physHealth -= rand.Next(en1.low, en2.high);
-            return (en2.physHealth <= 0);
+            if (en1.dead || en2.dead)
+            {
+                log((en1.dead) ? (en2.dead) ? "both attacker\n and target\n are dead!" : "attacker is dead!" : "target is dead");
+                return;
+            }
+            bool hit = en1.hitSuccess();
+            bool counter = en2.counterSuccess();
+            if (hit && !counter)
+            {
+                en2.physHealth -= rand.Next(en1.low, en1.high);
+                if (en2.physHealth <= 0) en2.die(log);
+                log(en1.name + "hits");
+            }
+            else if (!hit && counter && DummyProvider.getConfig.allowCounterAttack)
+            {
+                en1.physHealth -= rand.Next(en2.low, en2.high);
+                if (en1.physHealth <= 0) en1.die(log);
+                log(en2.name + "counterattacks!");
+            }
+            else log("nothing happens");
         }
 
         private void log(string str)
